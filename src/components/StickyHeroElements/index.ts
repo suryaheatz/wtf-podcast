@@ -1,0 +1,1 @@
+export { StickyHeroElements } from "./StickyHeroElements";

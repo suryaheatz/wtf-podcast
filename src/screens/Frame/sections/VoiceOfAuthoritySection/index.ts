@@ -1,0 +1,1 @@
+export { VoiceOfAuthoritySection } from "./VoiceOfAuthoritySection";

@@ -1,0 +1,1 @@
+export { KnowledgeChaptersSection } from "./KnowledgeChaptersSection";

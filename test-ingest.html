@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test YouTube Ingest</title>
+  <style>
+    body { font-family: system-ui; max-width: 600px; margin: 50px auto; padding: 20px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; }
+    button { padding: 10px 20px; background: #000; color: #fff; border: none; cursor: pointer; }
+    #result { margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 8px; white-space: pre-wrap; }
+    .error { background: #fee; color: #c00; }
+    .success { background: #efe; color: #060; }
+  </style>
+</head>
+<body>
+  <h1>Test YouTube Ingest Function</h1>
+
+  <input
+    id="urlInput"
+    type="text"
+    placeholder="Paste YouTube URL here"
+    value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  />
+
+  <button onclick="testIngest()">Test Ingest</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function testIngest() {
+      const resultDiv = document.getElementById('result');
+      const url = document.getElementById('urlInput').value;
+
+      resultDiv.textContent = 'Processing... (this may take 30-60 seconds for AI analysis)';
+      resultDiv.className = '';
+
+      try {
+        const response = await fetch(
+          'https://lwwhiuitbnwesbrualdo.supabase.co/functions/v1/ingest-youtube',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx3d2hpdWl0Ym53ZXNicnVhbGRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcwMTUyNjAsImV4cCI6MjA4MjU5MTI2MH0.xycfi21hBZlYOUbahvRAmDs0Ac5FUs4I0dJAeVArabk'
+            },
+            body: JSON.stringify({ youtubeUrl: url })
+          }
+        );
+
+        const data = await response.json();
+
+        if (data.success) {
+          resultDiv.className = 'success';
+          resultDiv.textContent = `✅ SUCCESS!\n\nEpisode ID: ${data.episode_id}\nTitle: ${data.title}\nInsights: ${data.insights_count}\n\nCheck your Supabase database to see the episode!`;
+        } else {
+          resultDiv.className = 'error';
+          resultDiv.textContent = `❌ ERROR:\n\n${data.error}\n\nCommon Issues:\n- Missing OPENAI_API_KEY in Supabase secrets\n- Invalid/expired OpenAI API key\n- Transcript unavailable for this video\n- No active podcast in database`;
+        }
+      } catch (error) {
+        resultDiv.className = 'error';
+        resultDiv.textContent = `❌ NETWORK ERROR:\n\n${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
