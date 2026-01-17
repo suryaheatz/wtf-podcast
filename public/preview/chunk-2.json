@@ -1,0 +1,318 @@
+{
+  "summary": {
+    "chunk_number": 2,
+    "total_chunks": 11,
+    "insights_count": 8,
+    "quotes_count": 3,
+    "last_timestamp": "00:41:36",
+    "extraction_complete": false,
+    "extraction_status": "incomplete",
+    "missing_counts": {
+      "executive_summary": 0,
+      "market_signals": 0,
+      "voice_of_authority": 5,
+      "playbook": 6,
+      "knowledge_chapters": 4,
+      "dos_and_donts": 4
+    }
+  },
+  "episode": {
+    "youtube_video_id": "AdI_XWv-ZTk",
+    "title": "Tira, Bombay Shaving Co., Inde Wild | WTF is Fueling India’s Beauty & Skincare Revolution? | Ep. 25",
+    "release_date": null,
+    "duration_minutes": 217,
+    "thumbnail_url": null,
+    "framing": "Three founders leading India’s skincare wave – Bhakti Modi (Tira), Shantanu Deshpande (Bombay Shaving Company), and Diipa Khosla (Inde Wild) join Nikhil Kamath to share the highs and lows of building beauty and skincare brands and the trends shaping this booming industry.",
+    "categories": [
+      "Beauty & Personal Care",
+      "D2C",
+      "Entrepreneurship",
+      "India Market"
+    ]
+  },
+  "people": {
+    "host": {
+      "name": "Nikhil Kamath"
+    },
+    "guests": [
+      {
+        "name": "Bhakti Modi",
+        "bio": "CEO of Tira, Reliance Retail Ventures Limited's beauty platform.",
+        "guest_tag": "Tira"
+      },
+      {
+        "name": "Diipa Khosla",
+        "bio": "Founder of Inde Wild, a globally recognized beauty and wellness brand leveraging Ayurvedic principles.",
+        "guest_tag": "Inde Wild"
+      },
+      {
+        "name": "Shantanu Deshpande",
+        "bio": "Founder of Bombay Shaving Company, a men's grooming brand in India.",
+        "guest_tag": "Bombay Shaving Company"
+      }
+    ]
+  },
+  "draft": {
+    "insights": [
+      {
+        "episode_part_number": 1,
+        "item_id": "I9",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Indian Beauty Market Price Segmentation",
+        "content": "Beauty products in India are segmented by price point:\n- Masstige: ₹700 - ₹1,000\n- Premium: ₹1,000 - ₹1,500\n- Prestige/Luxury: ₹2,300 - ₹2,500 and above.",
+        "context": "The segmentation discussion defines price ranges for different market tiers in the Indian BPC industry.",
+        "metric_value": "₹700-₹2,500+",
+        "metric_unit": "Indian Rupees",
+        "trend_direction": "unknown",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "00:23:46",
+        "timestamp_seconds": 1426,
+        "display_order": 1,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I10",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Unilever Minimalist Acquisition Valuation",
+        "content": "Minimalist was acquired by Unilever at a valuation of approximately 3,000 crores on a topline revenue of 480 crores, implying a revenue multiple of over 6x. This deal highlights the high valuation potential for successful D2C brands, particularly when acquired by large corporations seeking to premiumize their portfolios.",
+        "context": "Shantanu Deshpande and Nikhil Kamath discuss the high valuation of Minimalist's acquisition by Unilever, highlighting it as a significant market event.",
+        "metric_value": "3,000 crore valuation on 480 crore revenue (6x multiple)",
+        "metric_unit": "crores",
+        "trend_direction": "unknown",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "00:22:25",
+        "timestamp_seconds": 1345,
+        "display_order": 2,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I11",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Indian Beauty and Personal Care Market Size Exceeds Projections",
+        "content": "The Indian beauty and personal care (BPC) market reached $21 billion in 2024, surpassing earlier predictions made by consulting firms like McKinsey and Bain which forecasted this milestone for 2025.",
+        "context": "Diipa Khosla highlights the rapid growth of the Indian market, noting that it has already surpassed pre-pandemic forecasts.",
+        "metric_value": "21 billion dollars",
+        "metric_unit": "in 2024",
+        "trend_direction": "up",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:38:22",
+        "timestamp_seconds": 2302,
+        "display_order": 3,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I12",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Dominance of Hair Services in Salons",
+        "content": "The salon services industry in India, which is part of the overall beauty market, is heavily dominated by hair-related services, accounting for approximately 70% of the market.",
+        "context": "Bhakti Modi provides a breakdown of the beauty services market, indicating a strong focus on hair care in salons.",
+        "metric_value": "70",
+        "metric_unit": "percent",
+        "trend_direction": "unknown",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "00:27:30",
+        "timestamp_seconds": 1650,
+        "display_order": 4,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 85,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I13",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Salon Distribution Strategy for Professional Brands",
+        "content": "To succeed in the salon space, brands (like Kerastase) often establish exclusive distribution deals, provide training to stylists (who act as the initial customer), and integrate products into in-salon treatments. The salon acts as a high-trust sampling channel where the stylist recommends products for purchase on external platforms like Tira.",
+        "context": "Bhakti Modi explains how professional brands crack the highly fragmented salon market by training stylists and creating treatment menus using their products.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "00:28:49",
+        "timestamp_seconds": 1729,
+        "category_tag": "Distribution & Sales",
+        "action_item": "For high-end products, leverage in-salon services for sampling and recommendation, understanding that the in-salon purchase may lead to online repeat purchases.",
+        "stage": "20-100_cr",
+        "display_order": 5,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I14",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Redefining Traditional Practices for Gen Z",
+        "content": "Successfully re-imagining traditional Indian remedies (e.g., 'champi' hair oiling or ghee for lips) into cool, modern, and aesthetic products can attract the new generation of consumers (Gen Z) who are looking for nostalgic elements with a modern twist. This strategy turns a negative childhood memory into a positive, desirable trend.",
+        "context": "Diipa Khosla explains how Inde Wild reinvented the 'champi' experience, which used to have a negative connotation for many Indians, into a trendy self-care ritual.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:35:33",
+        "timestamp_seconds": 2133,
+        "category_tag": "Branding & Innovation",
+        "action_item": "Look for cultural practices or traditional products that can be modernized and marketed to Gen Z through new aesthetics and value propositions (e.g., functional ingredients, clean beauty).",
+        "stage": "0-20_cr",
+        "display_order": 6,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I15",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Match Western Quality with Indian Storytelling",
+        "content": "Indian consumers today demand Western standards for quality, safety, and transparency in ingredients. However, they increasingly seek brands that offer Indian-centric storytelling and representation, rather than products that simply ape Western narratives.",
+        "context": "Bhakti Modi discusses how the consumer mindset has shifted from blindly following Western brands to wanting both high quality (like European standards) and a relatable local narrative.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "00:40:46",
+        "timestamp_seconds": 2446,
+        "polarity": "do",
+        "action_item": "Global brands entering India must localize their storytelling to resonate with Indian consumers. Indian brands should leverage local heritage but ensure high-quality, transparent formulations.",
+        "display_order": 7,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I16",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Don't: Rely on Traditional Experts for Gen Z Marketing",
+        "content": "Millennials look to traditional experts like hairdressers and trichologists for product recommendations. Gen Z, however, prefers to take advice from influencers and Key Opinion Leaders (KOLs) and values instant gratification and DIY solutions.",
+        "context": "Diipa and Bhakti discuss the shift in who consumers consider trustworthy experts. Gen Z wants quick, intelligent products for at-home use, diminishing the salon's influence over product discovery for this demographic.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:31:31",
+        "timestamp_seconds": 1891,
+        "polarity": "dont",
+        "action_item": "When targeting Gen Z, focus marketing efforts on influencer collaborations and content creation over traditional expert-led endorsements or salon distribution models.",
+        "display_order": 8,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q6",
+        "quote_text": "And it claims to have all the same things, plus the influencer who's talking to me about it has said you get the same effects, I can see the before and afters.",
+        "author": "Diipa Khosla",
+        "timestamp": "00:32:14",
+        "timestamp_seconds": 1934,
+        "description": "Explaining why Gen Z prefers at-home products over salons.",
+        "order_index": 1,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q7",
+        "quote_text": "The champi, the hair oiling, was a PTSD to all of us growing up... And what indē wild did is we took that very same experience, turned it on its head, and made it cool.",
+        "author": "Diipa Khosla",
+        "timestamp": "00:35:33",
+        "timestamp_seconds": 2133,
+        "description": "On reinventing traditional practices for a modern audience.",
+        "order_index": 2,
+        "metadata": {
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q8",
+        "quote_text": "Now, as brands started really coming in and the consumer mindset started moving, one, consumers believed that when brands are coming from a country like France or they're coming from a country like Italy... they want product that is very, very good. But... they realised that they were not seeing people who represent them.",
+        "author": "Bhakti Modi",
+        "timestamp": "00:40:16",
+        "timestamp_seconds": 2416,
+        "description": "Explaining the shift from blindly aping the West to demanding both quality and representation.",
+        "order_index": 3,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ]
+  },
+  "needs_verification": {
+    "quotes": [],
+    "insights": []
+  },
+  "verification_table": []
+}

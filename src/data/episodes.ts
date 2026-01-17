@@ -1,6 +1,6 @@
 import { Episode } from "../types/episode";
 
-export const currentEpisodeId = "650e8400-e29b-41d4-a716-446655440008";
+export const currentEpisodeId = "f87414e9-ea5b-459b-92c7-97d9a9e913f3";
 
 export const episodes: Episode[] = [
   {
