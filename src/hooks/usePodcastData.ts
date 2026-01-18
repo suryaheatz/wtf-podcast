@@ -114,7 +114,10 @@ export function useEpisode(id: string | null): UseDataResult<Episode> {
     try {
       setLoading(true);
       setError(null);
-      const episode = await PodcastService.getEpisodeById(id);
+      const isNumeric = /^\d+$/.test(id);
+      const episode = isNumeric
+        ? await PodcastService.getEpisodeByNumber(Number(id))
+        : await PodcastService.getEpisodeById(id);
       setData(episode);
     } catch (err) {
       setError(err as Error);
@@ -179,7 +182,10 @@ export function useEpisodeWithDetails(episodeId: string | null): UseDataResult<E
     try {
       setLoading(true);
       setError(null);
-      const episode = await PodcastService.getEpisodeWithDetails(episodeId);
+      const isNumeric = /^\d+$/.test(episodeId);
+      const episode = isNumeric
+        ? await PodcastService.getEpisodeWithDetailsByNumber(Number(episodeId))
+        : await PodcastService.getEpisodeWithDetails(episodeId);
       setData(episode);
     } catch (err) {
       setError(err as Error);

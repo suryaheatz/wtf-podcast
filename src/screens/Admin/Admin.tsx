@@ -6,6 +6,7 @@ import { Card } from '../../components/ui/card';
 
 interface DraftEpisode {
   id: string;
+  episode_number?: number;
   title: string;
   youtube_video_id: string;
   framing: string;
@@ -32,7 +33,7 @@ const Admin = () => {
     setIsLoadingDrafts(true);
     const { data, error } = await supabase
       .from('episodes')
-      .select('id, title, youtube_video_id, framing, created_at')
+      .select('id, episode_number, title, youtube_video_id, framing, created_at')
       .eq('is_published', false)
       .order('created_at', { ascending: false });
 
@@ -48,7 +49,7 @@ const Admin = () => {
     setIsLoadingPublished(true);
     const { data, error } = await supabase
       .from('episodes')
-      .select('id, title, youtube_video_id, framing, created_at')
+      .select('id, episode_number, title, youtube_video_id, framing, created_at')
       .eq('is_published', true)
       .order('created_at', { ascending: false });
 
@@ -193,7 +194,10 @@ const Admin = () => {
 
         <div className="flex flex-col gap-3 justify-center">
           <Button
-            onClick={() => navigate(`/episode/${episode.id}`)}
+            onClick={() => {
+              const urlId = episode.episode_number ?? episode.id;
+              navigate(`/episode/${urlId}`);
+            }}
             variant="outline"
             className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white"
           >

@@ -9,9 +9,16 @@ interface EpisodesModalProps {
   isOpen: boolean;
   onClose: () => void;
   episodes: Episode[];
+  onEpisodeSelect?: (episode: Episode) => void;
 }
 
-export const EpisodesModal = ({ isOpen, onClose, episodes }: EpisodesModalProps): JSX.Element | null => {
+
+export const EpisodesModal = ({
+  isOpen,
+  onClose,
+  episodes,
+  onEpisodeSelect,
+}: EpisodesModalProps): JSX.Element | null => {
   const [hoveredEpisode, setHoveredEpisode] = useState<Episode | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -62,19 +69,46 @@ export const EpisodesModal = ({ isOpen, onClose, episodes }: EpisodesModalProps)
 
         <div className="flex-1 overflow-hidden">
           {isMobile ? (
-            <MobileEpisodeView episodes={episodes} />
+            <MobileEpisodeView
+              episodes={episodes}
+              onEpisodeSelect={(ep) => {
+                onEpisodeSelect?.(ep);
+                onClose();
+              }}
+            />
           ) : (
             <div className="w-full h-full overflow-y-auto px-12 py-12">
-              <div className="relative">
+              <div
+                className="relative"
+                onMouseLeave={() => setHoveredEpisode(null)}
+              >
                 <CalendarView
                   episodes={episodes}
                   onDateHover={setHoveredEpisode}
                   hoveredEpisode={hoveredEpisode}
                   currentEpisodeId={currentEpisodeId}
+                  onEpisodeSelect={(ep) => {
+                    onEpisodeSelect?.(ep);
+                    onClose();
+                  }}
                 />
                 {hoveredEpisode && (
                   <div className="fixed top-1/2 right-12 transform -translate-y-1/2">
-                    <div className="bg-black border border-[#fffefe0d] rounded-2xl p-6 shadow-2xl w-[380px] animate-in fade-in slide-in-from-right-4 duration-200">
+                    <div
+                      className="bg-black border border-[#fffefe0d] rounded-2xl p-6 shadow-2xl w-[380px] animate-in fade-in slide-in-from-right-4 duration-200 cursor-pointer"
+                      onClick={() => {
+                        onEpisodeSelect?.(hoveredEpisode);
+                        onClose();
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          onEpisodeSelect?.(hoveredEpisode);
+                          onClose();
+                        }
+                      }}
+                    >
                       <h3 className="text-xl font-bold text-[#2b7fff] mb-3 [font-family:'Arial-Bold',Helvetica]">
                         {hoveredEpisode.title}
                       </h3>
@@ -97,6 +131,9 @@ export const EpisodesModal = ({ isOpen, onClose, episodes }: EpisodesModalProps)
                           {hoveredEpisode.description}
                         </p>
                       )}
+                      <div className="mt-4 inline-flex items-center text-sm text-[#2b7fff] [font-family:'Arial-Bold',Helvetica]">
+                        Open episode →
+                      </div>
                     </div>
                   </div>
                 )}

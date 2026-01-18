@@ -4,7 +4,9 @@ import { Episode } from "../../types/episode";
 
 interface MobileEpisodeViewProps {
   episodes: Episode[];
+  onEpisodeSelect?: (episode: Episode) => void;
 }
+
 
 interface MonthGroup {
   month: string;
@@ -12,7 +14,8 @@ interface MonthGroup {
   episodes: Episode[];
 }
 
-export const MobileEpisodeView = ({ episodes }: MobileEpisodeViewProps): JSX.Element => {
+export const MobileEpisodeView = ({ episodes, onEpisodeSelect }: MobileEpisodeViewProps): JSX.Element => {
+
   const groupEpisodesByMonth = (): MonthGroup[] => {
     const groups: { [key: string]: MonthGroup } = {};
 
@@ -53,7 +56,11 @@ export const MobileEpisodeView = ({ episodes }: MobileEpisodeViewProps): JSX.Ele
       </style>
       <div className="mobile-episode-view space-y-12 px-6 py-6">
         {monthGroups.map((group, groupIndex) => (
-          <MonthSection key={groupIndex} monthGroup={group} />
+          <MonthSection
+          key={groupIndex}
+          monthGroup={group}
+          onEpisodeSelect={onEpisodeSelect}
+        />
         ))}
       </div>
     </div>
@@ -64,7 +71,8 @@ interface MonthSectionProps {
   monthGroup: MonthGroup;
 }
 
-const MonthSection = ({ monthGroup }: MonthSectionProps): JSX.Element => {
+const MonthSection = ({ monthGroup, onEpisodeSelect }: MonthSectionProps): JSX.Element => {
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -114,7 +122,11 @@ const MonthSection = ({ monthGroup }: MonthSectionProps): JSX.Element => {
             `}
           </style>
           {monthGroup.episodes.map((episode, index) => (
-            <EpisodeCard key={index} episode={episode} />
+             <EpisodeCard
+             key={index}
+             episode={episode}
+             onClick={() => onEpisodeSelect?.(episode)}
+           />
           ))}
         </div>
       </div>
@@ -124,14 +136,26 @@ const MonthSection = ({ monthGroup }: MonthSectionProps): JSX.Element => {
 
 interface EpisodeCardProps {
   episode: Episode;
+  onClick?: () => void;
 }
 
-const EpisodeCard = ({ episode }: EpisodeCardProps): JSX.Element => {
+
+const EpisodeCard = ({ episode, onClick }: EpisodeCardProps): JSX.Element => {
+
   const dayOfWeek = episode.releaseDate.toLocaleString('default', { weekday: 'short' }).toUpperCase();
   const dayOfMonth = episode.releaseDate.getDate();
 
   return (
-    <div className="flex-shrink-0 w-[280px] bg-zinc-900 rounded-2xl border border-[#fffefe0d] overflow-hidden">
+    <div
+  className="flex-shrink-0 w-[280px] bg-zinc-900 rounded-2xl border border-[#fffefe0d] overflow-hidden cursor-pointer hover:border-white/20 transition-colors"
+  onClick={onClick}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === "Enter" || e.key === " ") onClick?.();
+  }}
+>
+
       <div className="bg-[#2b7fff] px-6 py-6 text-center">
         <div className="text-sm font-bold text-white/90 mb-2 [font-family:'Arial-Bold',Helvetica]">
           {dayOfWeek}
