@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HomeIcon, ActivityIcon, BookOpenIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon } from "lucide-react";
+import { HomeIcon, ActivityIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon } from "lucide-react";
 
 interface NavItem {
   id: string;
@@ -22,12 +22,6 @@ const navItems: NavItem[] = [
     sectionId: "signals-section",
   },
   {
-    id: "chapters",
-    label: "Chapters",
-    icon: <BookOpenIcon className="w-5 h-5" />,
-    sectionId: "chapters-section",
-  },
-  {
     id: "quotes",
     label: "Quotes",
     icon: <MessageSquareQuoteIcon className="w-5 h-5" />,
@@ -46,7 +40,7 @@ interface FloatingNavProps {
 }
 
 export const FloatingNav = ({ onAIClick }: FloatingNavProps): JSX.Element => {
-  const [activeSection, setActiveSection] = useState<string>("chapters");
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
     const handleScroll = () => {

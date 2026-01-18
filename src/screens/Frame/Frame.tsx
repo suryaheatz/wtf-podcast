@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DosAndDontsSection } from "./sections/DosAndDontsSection";
 import { HeaderSection } from "./sections/HeaderSection";
 import { HeroSection } from "./sections/HeroSection";
-import { KnowledgeChaptersSection } from "./sections/KnowledgeChaptersSection";
+import { EpisodeChunksSection } from "./sections/EpisodeChunksSection";
 import { MarketSignalsSection } from "./sections/MarketSignalsSection";
 import { PlaybookSection } from "./sections/PlaybookSection";
 import { VoiceOfAuthoritySection } from "./sections/VoiceOfAuthoritySection";
@@ -29,6 +29,7 @@ export const Frame = (): JSX.Element => {
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
   const [isPIPOpen, setIsPIPOpen] = useState(false);
   const [pipStartTime, setPipStartTime] = useState(0);
+  const [activeChunk, setActiveChunk] = useState(1);
 
   const { data: episode, loading, error } = useEpisodeWithDetails(currentEpisodeId);
 
@@ -50,24 +51,34 @@ export const Frame = (): JSX.Element => {
         <div className="w-full py-4 md:py-6">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#fffefe0d] to-transparent dark:via-[#fffefe0d] light:via-gray-200" />
         </div>
-        <MarketSignalsSection episodeId={episode?.id ?? currentEpisodeId} />
+        <EpisodeChunksSection
+          episode={episode}
+          activeChunk={activeChunk}
+          onChunkChange={setActiveChunk}
+        />
         <SectionDivider />
-        <KnowledgeChaptersSection onTimestampClick={handleTimestampClick} />
+        <MarketSignalsSection
+          episodeId={episode?.id ?? currentEpisodeId}
+          chunkNumber={activeChunk}
+        />
         <SectionDivider />
         <VoiceOfAuthoritySection
           onTimestampClick={handleTimestampClick}
           episodeId={episode?.id ?? currentEpisodeId}
+          chunkNumber={activeChunk}
         />
         <SectionDivider />
         <DosAndDontsSection
           episodeId={episode?.id ?? currentEpisodeId}
           onTimestampClick={handleTimestampClick}
+          chunkNumber={activeChunk}
         />
         <SectionDivider />
         <PlaybookSection
           onTimestampClick={handleTimestampClick}
           episodeId={episode?.id ?? currentEpisodeId}
           youtubeVideoId={youtubeVideoId}
+          chunkNumber={activeChunk}
         />
       </main>
       <Footer />

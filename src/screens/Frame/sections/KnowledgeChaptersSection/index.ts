@@ -1,1 +1,1 @@
-export { KnowledgeChaptersSection } from "./KnowledgeChaptersSection";
+export {};

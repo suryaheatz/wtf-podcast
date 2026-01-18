@@ -7,24 +7,45 @@ import type { EpisodeInsight } from "../../../../types/database";
 interface DosAndDontsSectionProps {
   episodeId?: string | null;
   onTimestampClick?: (timestamp: string) => void;
+  chunkNumber?: number | null;
+  chunkSizeMinutes?: number;
 }
 
-export const DosAndDontsSection = ({ episodeId = null, onTimestampClick }: DosAndDontsSectionProps): JSX.Element => {
+const getChunkRange = (chunkNumber?: number | null, chunkSizeMinutes = 20) => {
+  if (!chunkNumber || chunkNumber < 1) return null;
+  const start = (chunkNumber - 1) * chunkSizeMinutes * 60;
+  const end = chunkNumber * chunkSizeMinutes * 60;
+  return { start, end };
+};
+
+export const DosAndDontsSection = ({
+  episodeId = null,
+  onTimestampClick,
+  chunkNumber = null,
+  chunkSizeMinutes = 20,
+}: DosAndDontsSectionProps): JSX.Element => {
   const { data: rawItems, loading, error } = useInsightsByType(episodeId, "roadmap_item");
 
   const { dos, donts } = React.useMemo(() => {
     const items = (rawItems ?? []) as EpisodeInsight[];
+    const chunkRange = getChunkRange(chunkNumber, chunkSizeMinutes);
+    const filteredItems = !chunkRange
+      ? items
+      : items.filter((item) => {
+          const seconds = item.timestamp_seconds;
+          return Number.isFinite(seconds) && seconds >= chunkRange.start && seconds < chunkRange.end;
+        });
     const dos: EpisodeInsight[] = [];
     const donts: EpisodeInsight[] = [];
 
-    for (const item of items) {
+    for (const item of filteredItems) {
       const metadata = (item.metadata as any) ?? {};
       if (metadata.polarity === "do") dos.push(item);
       if (metadata.polarity === "dont") donts.push(item);
     }
 
     return { dos, donts };
-  }, [rawItems]);
+  }, [rawItems, chunkNumber, chunkSizeMinutes]);
 
   if (loading) {
     return (

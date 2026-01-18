@@ -1,42 +1,36 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { GuestAvatarStack, Guest } from "../../../../components/GuestAvatarStack";
 import { AISummaryWidget } from "../../../../components/AISummaryWidget";
 import type { EpisodeWithDetails } from "../../../../types/database";
 import { getEpisodeNumberDisplay } from "../../../../lib/episode-utils";
 import { useTheme } from "../../../../contexts/ThemeContext";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEpisodeNavigation } from "../../../../hooks/useEpisodeNavigation";
+import { useNavigate } from "react-router-dom";
 
-const experts: Guest[] = [
-  {
-    initials: "KB",
-    name: "Kishore Biyani",
-    title: "The OG of Retail",
-    bgColor: "bg-amber-500",
-  },
-  {
-    initials: "AN",
-    name: "Ananth Narayanan",
-    title: "Scale Operator",
-    bgColor: "bg-blue-500",
-  },
-  {
-    initials: "RS",
-    name: "Raj Shamani",
-    title: "Content Capitalist",
-    bgColor: "bg-emerald-500",
-  },
-  {
-    initials: "NK",
-    name: "Nikhil Kamath",
-    title: "Investigator",
-    bgColor: "bg-zinc-500",
-  },
+const guestPalette = [
+  "bg-amber-500",
+  "bg-blue-500",
+  "bg-emerald-500",
+  "bg-purple-500",
+  "bg-pink-500",
+  "bg-indigo-500",
+  "bg-zinc-500",
 ];
 
-const summaryPoints = [
-  "The 'India 1' Thesis: Only ~30M households (120M people) drive 60-70% of all value-added consumption.",
-  "The 0-20-100 Rule: 0-20Cr is built on Product & Community. 20-100Cr is Performance Marketing. 100Cr+ requires Offline.",
-  "Content Strategy: Use the 'ECG' format (Evergreen, Controversial, Growth) to build attention without ad spend.",
-];
+const getInitials = (name: string) => {
+  const parts = name.split(" ").filter(Boolean);
+  const first = parts[0]?.[0] ?? "";
+  const last = parts.length > 1 ? parts[parts.length - 1]?.[0] ?? "" : "";
+  return `${first}${last}`.toUpperCase();
+};
+
+const splitSummaryPoints = (content: string) => {
+  return content
+    .split(/\n+/g)
+    .map((line) => line.replace(/^[\s•\u2022\u2023\u25E6\u2043\u2219\-]+/, "").trim())
+    .filter(Boolean);
+};
 
 interface HeroSectionProps {
   episode?: EpisodeWithDetails | null;
@@ -85,6 +79,90 @@ export const HeroSection = ({ episode, loading }: HeroSectionProps): JSX.Element
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const { theme } = useTheme();
+  const navigate = useNavigate();
+  const { prevId, nextId } = useEpisodeNavigation(episode?.id ?? null);
+
+  const guests = useMemo<Guest[]>(() => {
+    const result: Guest[] = [];
+    const seen = new Set<string>();
+
+    const normalizeName = (value: string) =>
+      value.toLowerCase().replace(/[^a-z\s]/g, "").trim();
+
+    const addGuest = (name: string, title: string, colorIndex: number) => {
+      const key = name.trim().toLowerCase();
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      result.push({
+        initials: getInitials(name),
+        name,
+        title,
+        bgColor: guestPalette[colorIndex % guestPalette.length],
+      });
+    };
+
+    const guestBioMap = new Map<string, string>();
+    (episode?.guests ?? []).forEach((guest) => {
+      if (guest.bio) {
+        guestBioMap.set(normalizeName(guest.name), guest.bio);
+      }
+    });
+
+    const uploaderHosts = episode?.guest_name
+      ? episode.guest_name
+          .split(",")
+          .map((name) => name.trim())
+          .filter(Boolean)
+      : [];
+
+    const hostNames = uploaderHosts;
+    hostNames.forEach((name, index) => {
+      const isHost = normalizeName(name).includes("nikhil kamath");
+      const bio = guestBioMap.get(normalizeName(name));
+      addGuest(name, bio ?? (isHost ? "Host" : "Guest"), index);
+    });
+
+    (episode?.guests ?? []).forEach((guest, index) => {
+      const isHost = normalizeName(guest.name).includes("nikhil kamath");
+      addGuest(
+        guest.name,
+        guest.bio || (isHost ? "Host" : "Guest"),
+        index + hostNames.length
+      );
+    });
+
+    const insightSpeakers = (episode?.insights ?? [])
+      .map((item) => item.speaker)
+      .filter((speaker): speaker is string => Boolean(speaker));
+
+    insightSpeakers.forEach((speaker, index) => {
+      const isHost = normalizeName(speaker).includes("nikhil kamath");
+      const bio = guestBioMap.get(normalizeName(speaker));
+      addGuest(
+        speaker,
+        bio ?? (isHost ? "Host" : "Guest"),
+        index + hostNames.length + (episode?.guests?.length ?? 0)
+      );
+    });
+
+    return result;
+  }, [episode]);
+
+  const summaryPoints = useMemo(() => {
+    const summaries = (episode?.insights ?? [])
+      .filter((item) => item.type === "tldr_summary" && item.content)
+      .flatMap((item) => splitSummaryPoints(item.content ?? ""));
+
+    if (summaries.length > 0) {
+      return summaries.slice(0, 6);
+    }
+
+    if (episode?.framing) {
+      return splitSummaryPoints(episode.framing).slice(0, 3);
+    }
+
+    return [];
+  }, [episode]);
 
   if (loading) {
     return <HeroSkeleton />;
@@ -105,6 +183,9 @@ export const HeroSection = ({ episode, loading }: HeroSectionProps): JSX.Element
   };
 
   const isDark = theme === 'dark';
+  const navButtonBase = isDark
+    ? "w-10 h-10 rounded-xl text-white/90 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed"
+    : "w-10 h-10 rounded-xl text-blue-700 hover:text-blue-900 transition disabled:opacity-40 disabled:cursor-not-allowed";
 
   return (
     <section
@@ -165,15 +246,39 @@ export const HeroSection = ({ episode, loading }: HeroSectionProps): JSX.Element
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
           <div className="flex-1 flex flex-col max-w-full lg:max-w-[821px]">
             {/* METADATA ROW */}
-            <div className="flex flex-row items-center gap-4 mb-6">
-              <div className="bg-blue-600 text-white font-mono text-xs font-bold px-3 py-1.5 rounded-sm border border-blue-400/30 tracking-wider">
-                {episodeDisplay}
+            <div className="flex flex-row flex-wrap items-center gap-4 mb-6">
+              <div className="flex items-center bg-blue-600 text-white font-mono text-xs font-bold border border-blue-400/30 tracking-wider rounded-2xl px-2 py-1">
+                <button
+                  type="button"
+                  className={navButtonBase}
+                  onClick={() => prevId && navigate(`/episode/${prevId}`)}
+                  disabled={!prevId}
+                  aria-label="Previous episode"
+                >
+                  <ChevronLeft className="mx-auto" size={18} />
+                </button>
+
+                <div className="px-3 py-2">
+                  {episodeDisplay}
+                </div>
+
+                <button
+                  type="button"
+                  className={navButtonBase}
+                  onClick={() => nextId && navigate(`/episode/${nextId}`)}
+                  disabled={!nextId}
+                  aria-label="Next episode"
+                >
+                  <ChevronRight className="mx-auto" size={18} />
+                </button>
               </div>
 
-              <AISummaryWidget
-                summaryPoints={summaryPoints}
-                episodeTitle={episode?.title}
-              />
+              {summaryPoints.length > 0 && (
+                <AISummaryWidget
+                  summaryPoints={summaryPoints}
+                  episodeTitle={episode?.title}
+                />
+              )}
             </div>
 
             {/* HEADLINE */}
@@ -195,9 +300,11 @@ export const HeroSection = ({ episode, loading }: HeroSectionProps): JSX.Element
             </p>
 
             {/* GUESTS ROW */}
-            <div className="flex flex-wrap gap-4 mt-4">
-              <GuestAvatarStack guests={experts} maxVisibleMobile={2} />
-            </div>
+            {guests.length > 0 && (
+              <div className="flex flex-wrap gap-4 mt-4">
+                <GuestAvatarStack guests={guests} maxVisibleMobile={2} />
+              </div>
+            )}
           </div>
 
           {/* DECORATIVE GLOW (Desktop only) */}
