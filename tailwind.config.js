@@ -1,3 +1,4 @@
+const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: [
     "./src/**/*.{html,js,ts,jsx,tsx}",
@@ -94,6 +95,10 @@ module.exports = {
     },
     container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant("light", ".light &");
+    }),
+  ],
   darkMode: ["class"],
 };

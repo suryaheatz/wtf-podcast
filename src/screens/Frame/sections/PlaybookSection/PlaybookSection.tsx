@@ -83,7 +83,7 @@ export const PlaybookSection = ({ episodeId = null, youtubeVideoId = null, onTim
     );
 
   return (
-    <section className="py-24 bg-zinc-950 dark:bg-zinc-950 light:bg-amber-50 border-t border-white/5 dark:border-white/5 light:border-gray-200">
+    <section className="py-24 bg-zinc-950 dark:bg-zinc-950 light:bg-slate-50 border-t border-white/5 dark:border-white/5 light:border-gray-200">
       <div className="w-full px-6">
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
@@ -124,7 +124,7 @@ export const PlaybookSection = ({ episodeId = null, youtubeVideoId = null, onTim
                   </div>
 
                   <ChevronDown
-                    className={`w-6 h-6 text-blue-400 dark:text-blue-400 light:text-amber-600 transition-transform duration-300 ${
+                    className={`w-6 h-6 text-blue-400 dark:text-blue-400 light:text-blue-500 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
