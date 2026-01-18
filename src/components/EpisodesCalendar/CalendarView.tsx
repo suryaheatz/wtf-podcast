@@ -7,9 +7,18 @@ interface CalendarViewProps {
   onDateHover?: (episode: Episode | null) => void;
   hoveredEpisode: Episode | null;
   currentEpisodeId?: string;
+  onEpisodeSelect?: (episode: Episode) => void;
 }
 
-export const CalendarView = ({ episodes, onDateHover, hoveredEpisode, currentEpisodeId }: CalendarViewProps): JSX.Element => {
+
+export const CalendarView = ({
+  episodes,
+  onDateHover,
+  hoveredEpisode,
+  currentEpisodeId,
+  onEpisodeSelect,
+}: CalendarViewProps): JSX.Element => {
+
   const [currentDate, setCurrentDate] = useState(new Date(2024, 0, 1));
 
   const getDaysInMonth = (date: Date) => {
@@ -95,18 +104,25 @@ export const CalendarView = ({ episodes, onDateHover, hoveredEpisode, currentEpi
               key={index}
               className="aspect-square relative"
               onMouseEnter={() => episode && onDateHover?.(episode)}
-              onMouseLeave={() => onDateHover?.(null)}
             >
               {day ? (
                 <div
-                  className={`w-full h-full flex items-center justify-center rounded-2xl transition-all duration-300 ${
-                    episode
-                      ? isCurrent
-                        ? `bg-gradient-to-br from-emerald-500 to-emerald-600 ring-4 ring-emerald-400/50 shadow-lg shadow-emerald-500/30 cursor-pointer scale-105 hover:scale-110 ${isHovered ? 'ring-4 ring-emerald-300' : ''}`
-                        : `bg-[#2b7fff] hover:bg-[#1e5fcc] cursor-pointer ${isHovered ? 'ring-2 ring-white scale-105' : ''}`
-                      : 'bg-transparent'
-                  }`}
-                >
+                className={`w-full h-full flex items-center justify-center rounded-2xl transition-all duration-300 ${
+                  episode
+                    ? isCurrent
+                      ? `bg-gradient-to-br from-emerald-500 to-emerald-600 ring-4 ring-emerald-400/50 shadow-lg shadow-emerald-500/30 cursor-pointer scale-105 hover:scale-110 ${isHovered ? 'ring-4 ring-emerald-300' : ''}`
+                      : `bg-[#2b7fff] hover:bg-[#1e5fcc] cursor-pointer ${isHovered ? 'ring-2 ring-white scale-105' : ''}`
+                    : 'bg-transparent'
+                }`}
+                onClick={() => episode && onEpisodeSelect?.(episode)}
+                role={episode ? "button" : undefined}
+                tabIndex={episode ? 0 : -1}
+                onKeyDown={(e) => {
+                  if (!episode) return;
+                  if (e.key === "Enter" || e.key === " ") onEpisodeSelect?.(episode);
+                }}
+              >
+              
                   <span
                     className={`text-2xl font-bold [font-family:'Arial-Bold',Helvetica] ${
                       episode ? 'text-white' : 'text-[#52525c]'

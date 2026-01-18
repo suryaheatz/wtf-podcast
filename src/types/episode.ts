@@ -1,5 +1,6 @@
 export interface Episode {
   id: string;
+  episodeNumber?: number;
   title: string;
   description: string;
   guest: string;

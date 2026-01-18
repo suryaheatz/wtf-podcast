@@ -5,6 +5,8 @@ import { useEpisodes } from "../../../../hooks/usePodcastData";
 import { HomeIcon, ActivityIcon, BookOpenIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon, MenuIcon, Sun, Moon } from "lucide-react";
 import { MobileMenu } from "../../../../components/MobileMenu";
 import { useTheme } from "../../../../contexts/ThemeContext";
+import { useNavigate } from "react-router-dom";
+
 
 interface NavItem {
   id: string;
@@ -57,10 +59,13 @@ export const HeaderSection = ({ onAIClick }: HeaderSectionProps): JSX.Element =>
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("chapters");
   const [showHeader, setShowHeader] = useState(false);
+  const navigate = useNavigate();
+
 
   const episodes = React.useMemo(() => {
     return dbEpisodes.map(ep => ({
       id: ep.id,
+      episodeNumber: ep.episode_number,
       title: ep.title,
       description: ep.description || '',
       guest: ep.guest_name || 'Unknown Guest',
@@ -274,10 +279,15 @@ export const HeaderSection = ({ onAIClick }: HeaderSectionProps): JSX.Element =>
       </header>
 
       <EpisodesModal
-        isOpen={isEpisodesOpen}
-        onClose={() => setIsEpisodesOpen(false)}
-        episodes={episodes}
-      />
+  isOpen={isEpisodesOpen}
+  onClose={() => setIsEpisodesOpen(false)}
+  episodes={episodes}
+  onEpisodeSelect={(ep) => {
+    const urlId = ep.episodeNumber ?? ep.id;
+    navigate(`/episode/${urlId}`);
+  }}
+/>
+
 
       <MobileMenu
         isOpen={isMobileMenuOpen}

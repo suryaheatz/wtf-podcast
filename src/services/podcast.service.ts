@@ -53,11 +53,56 @@ export class PodcastService {
     return data as Episode[];
   }
 
+  //Added by @unmeelya for episode navigation
+
+  static async getEpisodesForNavigation(options?: {
+    podcastId?: string;
+    includeUnpublished?: boolean;
+  }) {
+    const includeUnpublished = options?.includeUnpublished ?? true;
+
+    let query = supabase
+      .from("episodes")
+      .select("id, episode_number, created_at, is_published")
+      .order("episode_number", { ascending: true });
+
+    if (!includeUnpublished) {
+      query = query.eq("is_published", true);
+    }
+
+    if (options?.podcastId) {
+      query = query.eq("podcast_id", options.podcastId);
+    }
+
+    const { data, error } = await query;
+    if (error) throw error;
+
+    return (data ?? []) as {
+      id: string;
+      episode_number: number;
+      created_at: string;
+      is_published: boolean;
+    }[];
+  }
+
+
+
   static async getEpisodeById(id: string) {
     const { data, error } = await supabase
       .from('episodes')
       .select('*')
       .eq('id', id)
+      .maybeSingle();
+
+    if (error) throw error;
+    return data as Episode | null;
+  }
+
+  static async getEpisodeByNumber(episodeNumber: number) {
+    const { data, error } = await supabase
+      .from('episodes')
+      .select('*')
+      .eq('episode_number', episodeNumber)
       .maybeSingle();
 
     if (error) throw error;
@@ -144,7 +189,7 @@ export class PodcastService {
    * Get episode with all related data (guests and insights)
    * Uses the episode_full_details view for optimized fetching
    */
-  static async getEpisodeWithDetails(episodeId: string): Promise<EpisodeWithDetails | null> {
+  static async getEpisodeWithDetailsById(episodeId: string): Promise<EpisodeWithDetails | null> {
     // First get basic episode data
     const { data: episode, error: episodeError } = await supabase
       .from('episodes')
@@ -197,6 +242,23 @@ export class PodcastService {
       guests,
       insights: insights as EpisodeInsight[]
     };
+  }
+
+  static async getEpisodeWithDetails(episodeId: string): Promise<EpisodeWithDetails | null> {
+    return this.getEpisodeWithDetailsById(episodeId);
+  }
+
+  static async getEpisodeWithDetailsByNumber(episodeNumber: number): Promise<EpisodeWithDetails | null> {
+    const { data: episode, error } = await supabase
+      .from('episodes')
+      .select('id')
+      .eq('episode_number', episodeNumber)
+      .maybeSingle();
+
+    if (error) throw error;
+    if (!episode) return null;
+
+    return this.getEpisodeWithDetailsById(episode.id);
   }
 
   /**

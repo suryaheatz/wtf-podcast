@@ -14,6 +14,8 @@ import { PictureInPicturePlayer } from "../../components/PictureInPicturePlayer"
 import { SectionDivider } from "../../components/ui/section-divider";
 import { useEpisodeWithDetails } from "../../hooks/usePodcastData";
 import { Button } from "../../components/ui/button";
+import EpisodeNavArrows from "../../components/ui/EpisodeNavArrows";
+
 
 const timeToSeconds = (timestamp: string): number => {
   const parts = timestamp.split(":");
@@ -74,6 +76,7 @@ const EpisodePreview = (): JSX.Element => {
 
   return (
     <div className="w-full flex flex-col bg-black dark:bg-black light:bg-white min-h-screen">
+       <EpisodeNavArrows />
       <div className="bg-slate-900/80 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
