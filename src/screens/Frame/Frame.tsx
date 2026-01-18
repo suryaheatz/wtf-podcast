@@ -64,7 +64,11 @@ export const Frame = (): JSX.Element => {
         <SectionDivider />
         <DosAndDontsSection />
         <SectionDivider />
-        <PlaybookSection onTimestampClick={handleTimestampClick} />
+        <PlaybookSection
+          onTimestampClick={handleTimestampClick}
+          episodeId={episode?.id ?? currentEpisodeId}
+          youtubeVideoId={youtubeVideoId}
+        />
       </main>
       <Footer />
       <AIChat isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />

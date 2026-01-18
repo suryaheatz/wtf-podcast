@@ -117,7 +117,11 @@ const EpisodePreview = (): JSX.Element => {
         <SectionDivider />
         <DosAndDontsSection />
         <SectionDivider />
-        <PlaybookSection onTimestampClick={handleTimestampClick} />
+        <PlaybookSection
+          onTimestampClick={handleTimestampClick}
+          episodeId={episode?.id}
+          youtubeVideoId={youtubeVideoId}
+        />
       </main>
       <Footer />
       <AIChat isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
