@@ -59,7 +59,10 @@ export const Frame = (): JSX.Element => {
           episodeId={episode?.id ?? currentEpisodeId}
         />
         <SectionDivider />
-        <DosAndDontsSection episodeId={episode?.id ?? currentEpisodeId} />
+        <DosAndDontsSection
+          episodeId={episode?.id ?? currentEpisodeId}
+          onTimestampClick={handleTimestampClick}
+        />
         <SectionDivider />
         <PlaybookSection
           onTimestampClick={handleTimestampClick}

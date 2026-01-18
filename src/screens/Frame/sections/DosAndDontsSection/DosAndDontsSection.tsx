@@ -1,4 +1,4 @@
-import { CheckCircle2Icon, XCircleIcon } from "lucide-react";
+import { CheckCircle2Icon, XCircleIcon, ClockIcon } from "lucide-react";
 import React from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { useInsightsByType } from "../../../../hooks/usePodcastData";
@@ -6,9 +6,10 @@ import type { EpisodeInsight } from "../../../../types/database";
 
 interface DosAndDontsSectionProps {
   episodeId?: string | null;
+  onTimestampClick?: (timestamp: string) => void;
 }
 
-export const DosAndDontsSection = ({ episodeId = null }: DosAndDontsSectionProps): JSX.Element => {
+export const DosAndDontsSection = ({ episodeId = null, onTimestampClick }: DosAndDontsSectionProps): JSX.Element => {
   const { data: rawItems, loading, error } = useInsightsByType(episodeId, "roadmap_item");
 
   const { dos, donts } = React.useMemo(() => {
@@ -98,6 +99,24 @@ export const DosAndDontsSection = ({ episodeId = null }: DosAndDontsSectionProps
                     <p className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs md:text-sm tracking-[0] leading-5 mobile-text-stable">
                       {item.content || item.context || ""}
                     </p>
+                    <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600">
+                      <span>Speaker: {item.speaker ?? "unknown"}</span>
+                      {item.timestamp_start && onTimestampClick && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onTimestampClick(item.timestamp_start as string);
+                          }}
+                          className="flex items-center gap-2 px-3 py-1 bg-[#ffffff0d] dark:bg-[#ffffff0d] light:bg-gray-100 rounded-full border border-[#ffffff1a] dark:border-[#ffffff1a] light:border-gray-300 hover:bg-[#2b7fff1a] dark:hover:bg-[#2b7fff1a] light:hover:bg-blue-50 hover:border-[#2b7fff] dark:hover:border-[#2b7fff] light:hover:border-blue-500 transition-all duration-200 cursor-pointer group"
+                          aria-label={`Jump to timestamp ${item.timestamp_start}`}
+                        >
+                          <ClockIcon className="w-3.5 h-3.5 text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 group-hover:text-[#2b7fff] dark:group-hover:text-[#2b7fff] light:group-hover:text-blue-700 transition-colors" />
+                          <span className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs group-hover:text-[#2b7fff] dark:group-hover:text-[#2b7fff] light:group-hover:text-blue-700 transition-colors">
+                            {item.timestamp_start}
+                          </span>
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -136,6 +155,24 @@ export const DosAndDontsSection = ({ episodeId = null }: DosAndDontsSectionProps
                     <p className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs md:text-sm tracking-[0] leading-5 mobile-text-stable">
                       {item.content || item.context || ""}
                     </p>
+                    <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600">
+                      <span>Speaker: {item.speaker ?? "unknown"}</span>
+                      {item.timestamp_start && onTimestampClick && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onTimestampClick(item.timestamp_start as string);
+                          }}
+                          className="flex items-center gap-2 px-3 py-1 bg-[#ffffff0d] dark:bg-[#ffffff0d] light:bg-gray-100 rounded-full border border-[#ffffff1a] dark:border-[#ffffff1a] light:border-gray-300 hover:bg-[#2b7fff1a] dark:hover:bg-[#2b7fff1a] light:hover:bg-blue-50 hover:border-[#2b7fff] dark:hover:border-[#2b7fff] light:hover:border-blue-500 transition-all duration-200 cursor-pointer group"
+                          aria-label={`Jump to timestamp ${item.timestamp_start}`}
+                        >
+                          <ClockIcon className="w-3.5 h-3.5 text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 group-hover:text-[#2b7fff] dark:group-hover:text-[#2b7fff] light:group-hover:text-blue-700 transition-colors" />
+                          <span className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs group-hover:text-[#2b7fff] dark:group-hover:text-[#2b7fff] light:group-hover:text-blue-700 transition-colors">
+                            {item.timestamp_start}
+                          </span>
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}

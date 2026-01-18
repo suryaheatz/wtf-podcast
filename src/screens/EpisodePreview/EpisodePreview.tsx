@@ -112,7 +112,10 @@ const EpisodePreview = (): JSX.Element => {
           episodeId={episode?.id}
         />
         <SectionDivider />
-        <DosAndDontsSection episodeId={episode?.id} />
+        <DosAndDontsSection
+          episodeId={episode?.id}
+          onTimestampClick={handleTimestampClick}
+        />
         <SectionDivider />
         <PlaybookSection
           onTimestampClick={handleTimestampClick}
