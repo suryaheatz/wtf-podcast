@@ -1,0 +1,405 @@
+{
+  "summary": {
+    "chunk_number": 5,
+    "total_chunks": 11,
+    "insights_count": 8,
+    "quotes_count": 8,
+    "last_timestamp": "01:34:46",
+    "extraction_complete": false,
+    "extraction_status": "incomplete",
+    "missing_counts": {
+      "executive_summary": 0,
+      "market_signals": 0,
+      "voice_of_authority": 0,
+      "playbook": 3,
+      "knowledge_chapters": 4,
+      "dos_and_donts": 1
+    }
+  },
+  "episode": {
+    "youtube_video_id": "AdI_XWv-ZTk",
+    "title": "Tira, Bombay Shaving Co., Inde Wild | WTF is Fueling India’s Beauty & Skincare Revolution? | Ep. 25",
+    "release_date": null,
+    "duration_minutes": 217,
+    "thumbnail_url": null,
+    "framing": "Three founders leading India’s skincare wave – Bhakti Modi (Tira), Shantanu Deshpande (Bombay Shaving Company), and Diipa Khosla (Inde Wild) join Nikhil Kamath to share the highs and lows of building beauty and skincare brands and the trends shaping this booming industry.",
+    "categories": [
+      "Beauty & Personal Care",
+      "D2C",
+      "Entrepreneurship",
+      "India Market"
+    ]
+  },
+  "people": {
+    "host": {
+      "name": "Nikhil Kamath"
+    },
+    "guests": [
+      {
+        "name": "Bhakti Modi",
+        "bio": "CEO of Tira, Reliance Retail Ventures Limited's beauty platform.",
+        "guest_tag": "Tira"
+      },
+      {
+        "name": "Diipa Khosla",
+        "bio": "Founder of Inde Wild, a globally recognized beauty and wellness brand leveraging Ayurvedic principles.",
+        "guest_tag": "Inde Wild"
+      },
+      {
+        "name": "Shantanu Deshpande",
+        "bio": "Founder of Bombay Shaving Company, a men's grooming brand in India.",
+        "guest_tag": "Bombay Shaving Company"
+      }
+    ]
+  },
+  "draft": {
+    "insights": [
+      {
+        "episode_part_number": 1,
+        "item_id": "I33",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Impact of Tariffs and Market Shift on US/India Sales",
+        "content": "Due to changing market dynamics and tariffs, Inde Wild's revenue contribution from the US market (previously 60%) has shifted, with India now accounting for 60% of sales and US at 40%. Retail sales in India grew 500% in the last year to facilitate this shift.",
+        "context": "Diipa Khosla discusses the impact of tariffs and market forces on her brand's global sales distribution, highlighting rapid growth in India.",
+        "metric_value": "US share change: 60% -> 40%; India share change: 40% -> 60%",
+        "metric_unit": "percentage point shift",
+        "trend_direction": "unknown",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "01:27:54",
+        "timestamp_seconds": 4074,
+        "display_order": 1,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I34",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Omnichannel as a Must-Have for D2C Growth",
+        "content": "For a D2C brand aiming for scale and growth, adopting an omnichannel strategy is essential. This allows brands to leverage both direct-to-consumer online channels and multi-brand retailers to reach a wider audience.",
+        "context": "Shantanu emphasizes the non-negotiable nature of omnichannel for scaling, while Bhakti explains how multi-brand retailers like Tira provide a captive audience for D2C brands.",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "01:22:25",
+        "timestamp_seconds": 4005,
+        "category_tag": "Distribution & Sales",
+        "action_item": "New brands should plan for an omnichannel launch to capture larger market shares and increase visibility beyond a single D2C website.",
+        "stage": "20-100_cr",
+        "display_order": 2,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I35",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Strategic Pricing for New Fragrance Brands",
+        "content": "A new fragrance brand should target the entry-premium price point (e.g., ₹999 to ₹2,000) rather than competing in the mass market (below ₹1,000). This position offers better margins for quality ingredients and aligns with consumer aspirations for premium products.",
+        "context": "Shantanu Deshpande suggests the 1,000-2,000 range for new brands to balance value, aspiration, and ingredient quality, noting the mass market below this is crowded.",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "01:18:50",
+        "timestamp_seconds": 3905,
+        "category_tag": "Pricing & Strategy",
+        "action_item": "Avoid the crowded mass market and position the brand at a price point that supports both quality and aspirational branding for consumers.",
+        "stage": "0-20_cr",
+        "display_order": 3,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 88,
+          "confidence": 0.9,
+          "must_keep": true, must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I36",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Community Building around Niche Interests (Fragheads)",
+        "content": "A high-impact community building strategy involves targeting 'fragheads'—enthusiasts who have deep knowledge and passion for fragrances. By engaging this niche community, founders can build brand loyalty and create high-quality content that educates and excites consumers about their products.",
+        "context": "Shantanu suggests building a 'fraghead' community, akin to sneakerheads, to create a shared value around perfume appreciation and make the hobby 'cool'.",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "01:22:53",
+        "timestamp_seconds": 4013,
+        "category_tag": "Community & Branding",
+        "action_item": "Identify and engage niche communities for brand building, leveraging the shared interest to create high-quality content and drive word-of-mouth marketing.",
+        "stage": "0-20_cr",
+        "display_order": 4,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I37",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Emphasize the Emotional and Identity aspects of Fragrance",
+        "content": "Focus on the positive emotional benefits of fragrance rather than marketing based on fear of bad smells. Good smells trigger positive emotions, memories, and enhance identity, making consumers feel more confident or sophisticated. This emotional connection provides a stronger incentive for repeat purchase.",
+        "context": "Nikhil suggests marketing based on fear of bad smells ('You stink'). Bhakti and Diipa argue that good smells create a positive emotional connection and memory, which is more powerful for brand loyalty.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "01:24:41",
+        "timestamp_seconds": 4481,
+        "polarity": "do",
+        "action_item": "Develop product messaging that emphasizes positive emotions, self-expression, and personal identity to build a strong brand connection with the customer.",
+        "display_order": 5,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I38",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "TikTok's Influence on Retail",
+        "content": "Douyin (TikTok's Chinese version) accounts for 40% of retail sales, indicating its enormous influence on consumer purchasing behavior and brand discovery. It has created a need for continuous content creation by brands.",
+        "context": "Shantanu references TikTok shop and its significant impact on retail, highlighting the shift in consumer research behavior.",
+        "metric_value": "40",
+        "metric_unit": "percent of retail sales (Douyin)",
+        "trend_direction": "up",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "01:29:59",
+        "timestamp_seconds": 4179,
+        "display_order": 6,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 85,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I39",
+        "ui_section": "knowledge_chapters",
+        "type": "video_chapter",
+        "title": "Indian Brands Go Global: Leveraging Ayurveda and Wellness",
+        "content": "Discussion on the global opportunity for Indian brands, particularly in beauty and wellness, by leveraging traditional heritage like Ayurveda. The panel notes that the world is ready for Indian brands, similar to the previous success of Korean and Japanese beauty, citing Sephora's global partnership with Inde Wild as an example.",
+        "context": "Diipa and Bhakti discuss how global markets are now receptive to Indian wellness, as evidenced by the high demand for Indian ingredients in places like Erewhon in LA.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "01:31:00",
+        "timestamp_seconds": 4260,
+        "display_order": 7,
+        "metadata": {
+          "ui_section": "knowledge_chapters",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I40",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Revisit Traditional Indian Ingredients with Modern Science",
+        "content": "Traditional Indian ingredients and practices (like ghee, turmeric, shilajit) are now receiving scientific validation globally. Brands should leverage this heritage, focusing on wellness and longevity, as consumers (both domestic and international) are increasingly interested in these traditional methods.",
+        "context": "Diipa mentions the growing popularity of ingredients like shilajit and turmeric in Western markets, noting that traditional wisdom is being scientifically proven and accepted.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "01:32:50",
+        "timestamp_seconds": 4370,
+        "polarity": "do",
+        "action_item": "Incorporate scientifically backed traditional ingredients into product development and highlight this heritage in branding to capitalize on the global wellness trend.",
+        "display_order": 8,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q23",
+        "quote_text": "My view is you should be able to give value and aspiration. 100%. But today, when you're looking at a fragrance that is a Dior or a Chanel or even lower, right? Everyone wants to aspire there.",
+        "author": "Bhakti Modi",
+        "timestamp": "01:19:39",
+        "timestamp_seconds": 4099,
+        "description": "Explaining the importance of pricing for aspiration.",
+        "order_index": 1,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q24",
+        "quote_text": "I thought perfumes are like bottled water. There's no difference between $200 and $2.",
+        "author": "Nikhil Kamath",
+        "timestamp": "01:21:10",
+        "timestamp_seconds": 4150,
+        "description": "Questioning product quality differences in fragrance pricing.",
+        "order_index": 2,
+        "metadata": {
+          "priority_score": 80,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q25",
+        "quote_text": "Today, omnichannel. If you want to grow at scale, omnichannel is the way to go.",
+        "author": "Shantanu Deshpande",
+        "timestamp": "01:22:25",
+        "timestamp_seconds": 4005,
+        "description": "Highlighting the necessity of omnichannel strategy.",
+        "order_index": 3,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q26",
+        "quote_text": "Fragheads are people who understand-- So, they're called 'noses.' So, if you're a nose, you can distinguish between multiple notes.",
+        "author": "Shantanu Deshpande",
+        "timestamp": "01:22:58",
+        "timestamp_seconds": 4018,
+        "description": "Defining the niche community of fragheads.",
+        "order_index": 4,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q27",
+        "quote_text": "I feel like I can sell fear around bad smell much more than I can sell the incentive of good smell.",
+        "author": "Nikhil Kamath",
+        "timestamp": "01:24:33",
+        "timestamp_seconds": 4473,
+        "description": "Contrarian marketing idea: selling fear vs. positive incentive.",
+        "order_index": 5,
+        "metadata": {
+          "priority_score": 85,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q28",
+        "quote_text": "Because good smell triggers-- Again, we spoke about emotion. It triggers that emotion in you, it triggers a memory. It triggers something. It takes you back to some moment in your life.",
+        "author": "Bhakti Modi",
+        "timestamp": "01:24:41",
+        "timestamp_seconds": 4481,
+        "description": "Explaining the emotional power of fragrance.",
+        "order_index": 6,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q29",
+        "quote_text": "I think building from India for the world... is something that-- We have to start doing a lot more of what she does. What indē wild is doing. Yeah. 100%. I think the world's ready.",
+        "author": "Diipa Khosla",
+        "timestamp": "01:31:04",
+        "timestamp_seconds": 4264,
+        "description": "Advocating for Indian brands to go global.",
+        "order_index": 7,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q30",
+        "quote_text": "I would never imagine Sephora, the Sephora, take an Indian brand like indē wild, and build a global partnership.",
+        "author": "Diipa Khosla",
+        "timestamp": "01:32:11",
+        "timestamp_seconds": 4331,
+        "description": "Highlighting the new global acceptance of Indian brands.",
+        "order_index": 8,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWvTk"
+        }
+      }
+    ]
+  },
+  "needs_verification": {
+    "quotes": [],
+    "insights": []
+  },
+  "verification_table": []
+}

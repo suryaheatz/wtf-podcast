@@ -1,0 +1,406 @@
+{
+  "summary": {
+    "chunk_number": 6,
+    "total_chunks": 11,
+    "insights_count": 8,
+    "quotes_count": 8,
+    "last_timestamp": "01:52:54",
+    "extraction_complete": false,
+    "extraction_status": "incomplete",
+    "missing_counts": {
+      "executive_summary": 0,
+      "market_signals": 0,
+      "voice_of_authority": 0,
+      "playbook": 3,
+      "knowledge_chapters": 4,
+      "dos_and_donts": 1
+    }
+  },
+  "episode": {
+    "youtube_video_id": "AdI_XWv-ZTk",
+    "title": "Tira, Bombay Shaving Co., Inde Wild | WTF is Fueling India’s Beauty & Skincare Revolution? | Ep. 25",
+    "release_date": null,
+    "duration_minutes": 217,
+    "thumbnail_url": null,
+    "framing": "Three founders leading India’s skincare wave – Bhakti Modi (Tira), Shantanu Deshpande (Bombay Shaving Company), and Diipa Khosla (Inde Wild) join Nikhil Kamath to share the highs and lows of building beauty and skincare brands and the trends shaping this booming industry.",
+    "categories": [
+      "Beauty & Personal Care",
+      "D2C",
+      "Entrepreneurship",
+      "India Market"
+    ]
+  },
+  "people": {
+    "host": {
+      "name": "Nikhil Kamath"
+    },
+    "guests": [
+      {
+        "name": "Bhakti Modi",
+        "bio": "CEO of Tira, Reliance Retail Ventures Limited's beauty platform.",
+        "guest_tag": "Tira"
+      },
+      {
+        "name": "Diipa Khosla",
+        "bio": "Founder of Inde Wild, a globally recognized beauty and wellness brand leveraging Ayurvedic principles.",
+        "guest_tag": "Inde Wild"
+      },
+      {
+        "name": "Shantanu Deshpande",
+        "bio": "Founder of Bombay Shaving Company, a men's grooming brand in India.",
+        "guest_tag": "Bombay Shaving Company"
+      }
+    ]
+  },
+  "draft": {
+    "insights": [
+      {
+        "episode_part_number": 1,
+        "item_id": "I41",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Influencer Strategy: Prioritize Micro over Mega Influencers for Conversion",
+        "content": "For a new brand with limited budget and no existing founder following, prioritize micro and nano-influencers over mega influencers. While mega influencers offer high awareness, micro-influencers provide better conversion rates and often collaborate for free or at low cost, valuing the association and content opportunities more highly.",
+        "context": "Diipa and Shantanu compare influencer tiers, noting that micro-influencers are more effective for new brands in terms of driving sales. Mega-influencers are often over-saturated with free products and expect high compensation.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "01:39:20",
+        "timestamp_seconds": 4760,
+        "category_tag": "Marketing & Influencers",
+        "action_item": "Allocate a larger portion of the marketing budget towards engaging micro and nano-influencers to build conversion and authentic community engagement, reserving mega-influencers for awareness campaigns only.",
+        "stage": "0-20_cr",
+        "display_order": 1,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I42",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Influencer Gifting: Personalization and Unboxing Experience",
+        "content": "When gifting products to influencers, create a unique unboxing experience and include personalized touches like a handwritten note from the founder. This increases the likelihood of organic posting and creates shareable content, especially for smaller brands without a large existing following.",
+        "context": "Shantanu highlights the success of sending products with a personalized handwritten note to celebrities. Diipa emphasizes making the unboxing experience unique to create a shareable content moment for the influencer's audience.",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "01:36:54",
+        "timestamp_seconds": 4614,
+        "category_tag": "Marketing & Influencers",
+        "action_item": "Develop creative packaging and add personalized elements (notes, unique items) to PR packages to maximize the chance of organic mentions and create a strong first impression for influencers.",
+        "stage": "0-20_cr",
+        "display_order": 2,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I43",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Sampling Strategies for Mass to Masstige Conversion",
+        "content": "Effective sampling can convert mass consumers to masstige products. This strategy works well when a brand leverages in-store experiences (like Tira's sampling machine) or partnerships with multi-brand retailers to insert samples into orders. This is especially effective if the sampled product is generating social media buzz, reducing consumer price hesitation.",
+        "context": "Bhakti discusses Tira's strategy of offering samples via a gamified vending machine in physical stores. She also mentions placing samples in orders to upsell consumers from mass to masstige products.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "01:43:07",
+        "timestamp_seconds": 5047,
+        "category_tag": "Distribution & Sales",
+        "action_item": "Use targeted sampling (in-store or online) to encourage trial and convert consumers to higher price-point products, bridging the gap between value perception and purchasing decision.",
+        "stage": "20-100_cr",
+        "display_order": 3,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I44",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "The Rise of Minis as a Business Model in India",
+        "content": "India has become a major market for 'minis' or travel-sized products. This trend allows brands to sell premium products to value-conscious consumers at an affordable price point, acting as a bridge from masstige to premium/luxury categories. Minis also cater to trends like product wardrobing and expiration concerns (e.g., mascara's short lifespan).",
+        "context": "Bhakti Modi discusses how global brands like Bobbi Brown and MAC have created specific mini SKUs for the Indian market to drive trial and overcome price barriers.",
+        "metric_value": "Mini capital of the world",
+        "metric_unit": "Indian market trend",
+        "trend_direction": "up",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "01:44:09",
+        "timestamp_seconds": 5049,
+        "display_order": 4,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I45",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Focus on Product Efficacy over Packaging Aesthetics",
+        "content": "Gen Z consumers prioritize the product formulation and efficacy inside the bottle over expensive, aesthetically pleasing packaging. A founder with limited capital should follow The Ordinary's strategy: invest resources in creating the best product and in marketing, rather than on elaborate packaging.",
+        "context": "Diipa highlights that Gen Z is too savvy to be fooled by extravagant packaging alone. Shantanu suggests prioritizing product quality for a new brand, while Diipa uses The Ordinary as an example of successful marketing focused on formulation transparency.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "01:49:34",
+        "timestamp_seconds": 5374,
+        "polarity": "do",
+        "action_item": "Allocate a larger share of COGS to high-quality ingredients and R&D rather than packaging design to build consumer trust based on product performance.",
+        "display_order": 5,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I46",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Treat Sustainability as 'Table Stakes' rather than a Marketing Message",
+        "content": "Sustainability is becoming a baseline expectation for Gen Z consumers, especially affluent urban youth. Founders should view it as 'table stakes' rather than a unique selling proposition. Avoid making excessive claims to prevent 'greenwashing' criticism and instead focus on being honest about sustainable practices.",
+        "context": "Diipa states that sustainability and being cruelty-free are no-brainers for a modern brand. Bhakti notes that brands are cautious about claiming sustainability for fear of consumer backlash and doubt.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "01:51:20",
+        "timestamp_seconds": 5480,
+        "polarity": "do",
+        "action_item": "Integrate sustainable practices in product development (e.g., refillable packaging) but prioritize authentic communication over aggressive, potentially misleading marketing claims.",
+        "display_order": 6,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I47",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Don't: Make Minis Your Primary Business Model",
+        "content": "Minis generally offer poor margins because packaging costs are high relative to the product volume. While they are great for upselling and sampling, new founders should avoid relying on minis as a core source of revenue.",
+        "context": "Bhakti explains that minis have lower margins due to high fixed packaging costs relative to the smaller product size, making them less profitable than full-size products.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "01:47:56",
+        "timestamp_seconds": 5276,
+        "polarity": "dont",
+        "action_item": "Use minis strategically as a conversion tool rather than a primary business driver to manage profitability and maintain margins.",
+        "display_order": 7,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 85,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I48",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Prioritize Quality over Cost-Saving in Fragrance Ingredients",
+        "content": "For new brands, especially in fragrances, prioritizing product quality (ingredients) is more important than achieving high margins. High-quality ingredients justify premium pricing and differentiate the brand from cheap mass alternatives, building long-term consumer trust in efficacy.",
+        "context": "Bhakti explains that a ₹999 price point might compromise ingredient quality, arguing that customers expect better quality in beauty for aspirational purchases and efficacy.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "01:20:16",
+        "timestamp_seconds": 4156,
+        "polarity": "do",
+        "action_item": "When launching a new fragrance or beauty brand, invest in high-quality ingredients, even if it means sacrificing short-term margins, to establish brand credibility and consumer trust.",
+        "display_order": 8,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 88,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q31",
+        "quote_text": "My view has always been, like, the best influencers are your current customers. And the best-- Not celebrities who I... Not-- not early on, no? My view is just take the product and start sending it to celebrities. And see who starts liking it.",
+        "author": "Shantanu Deshpande",
+        "timestamp": "01:36:02",
+        "timestamp_seconds": 4562,
+        "description": "Advice on identifying genuine advocates for a new brand.",
+        "order_index": 1,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q32",
+        "quote_text": "The nanos and the micros get you a lot more traction. Organic reach. And conversion. Versus, you know, using mega influencers.",
+        "author": "Bhakti Modi",
+        "timestamp": "01:39:56",
+        "timestamp_seconds": 4796,
+        "description": "Comparing the effectiveness of influencer tiers for D2C brands.",
+        "order_index": 2,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q33",
+        "quote_text": "India is a mini capital of the world. Like, global brands have produced their best sellers, particularly for India, because they know that India is a value market.",
+        "author": "Bhakti Modi",
+        "timestamp": "01:44:16",
+        "timestamp_seconds": 5056,
+        "description": "On the trend of selling travel sizes in India to bridge the price barrier for premium brands.",
+        "order_index": 3,
+        "metadata": {
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q34",
+        "quote_text": "I think you might be bang-on with your Champi. Especially with Gen Z. Is that what it's called? Champi?",
+        "author": "Nikhil Kamath",
+        "timestamp": "01:47:20",
+        "timestamp_seconds": 5240,
+        "description": "Nikhil confirms Diipa's strategy of re-imagining traditional products.",
+        "order_index": 4,
+        "metadata": {
+          "priority_score": 85,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q35",
+        "quote_text": "I think sustainability... Do you put it on every product? That we're sustainable? No. Because it's a given. Like, I don't... I don't need to scream about it.",
+        "author": "Diipa Khosla",
+        "timestamp": "01:49:17",
+        "timestamp_seconds": 5357,
+        "description": "Diipa's view on sustainability as 'table stakes' rather than a key marketing message.",
+        "order_index": 5,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q36",
+        "quote_text": "Ordinary is all about that... 'I'm marketing... We put all our marketing money into building the best product ever.' They said 'Make better packaging,' but we put all the money into the formulations.",
+        "author": "Shantanu Deshpande",
+        "timestamp": "01:50:02",
+        "timestamp_seconds": 5402,
+        "description": "Citing The Ordinary's strategy of prioritizing formulation over packaging.",
+        "order_index": 6,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q37",
+        "quote_text": "I think today's Gen Z... actually cares about the product inside the bottle, not the bottle so much. They're way too smart for that.",
+        "author": "Diipa Khosla",
+        "timestamp": "01:49:34",
+        "timestamp_seconds": 5374,
+        "description": "On Gen Z's focus on product quality over superficial branding.",
+        "order_index": 7,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q38",
+        "quote_text": "Being honest about that, I think, also, with founders who are a little sustainable, nobody can be all the way sustainable because, then, you don't have a brand.",
+        "author": "Diipa Khosla",
+        "timestamp": "01:52:29",
+        "timestamp_seconds": 5549,
+        "description": "Advising honesty about sustainability limitations due to market realities.",
+        "order_index": 8,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ]
+  },
+  "needs_verification": {
+    "quotes": [],
+    "insights": []
+  },
+  "verification_table": []
+}

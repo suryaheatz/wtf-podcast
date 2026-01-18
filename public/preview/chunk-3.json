@@ -1,0 +1,371 @@
+{
+  "summary": {
+    "chunk_number": 3,
+    "total_chunks": 11,
+    "insights_count": 8,
+    "quotes_count": 6,
+    "last_timestamp": "00:59:42",
+    "extraction_complete": false,
+    "extraction_status": "incomplete",
+    "missing_counts": {
+      "executive_summary": 0,
+      "market_signals": 0,
+      "voice_of_authority": 2,
+      "playbook": 3,
+      "knowledge_chapters": 1,
+      "dos_and_donts": 0
+    }
+  },
+  "episode": {
+    "youtube_video_id": "AdI_XWv-ZTk",
+    "title": "Tira, Bombay Shaving Co., Inde Wild | WTF is Fueling India’s Beauty & Skincare Revolution? | Ep. 25",
+    "release_date": null,
+    "duration_minutes": 217,
+    "thumbnail_url": null,
+    "framing": "Three founders leading India’s skincare wave – Bhakti Modi (Tira), Shantanu Deshpande (Bombay Shaving Company), and Diipa Khosla (Inde Wild) join Nikhil Kamath to share the highs and lows of building beauty and skincare brands and the trends shaping this booming industry.",
+    "categories": [
+      "Beauty & Personal Care",
+      "D2C",
+      "Entrepreneurship",
+      "India Market"
+    ]
+  },
+  "people": {
+    "host": {
+      "name": "Nikhil Kamath"
+    },
+    "guests": [
+      {
+        "name": "Bhakti Modi",
+        "bio": "CEO of Tira, Reliance Retail Ventures Limited's beauty platform.",
+        "guest_tag": "Tira"
+      },
+      {
+        "name": "Diipa Khosla",
+        "bio": "Founder of Inde Wild, a globally recognized beauty and wellness brand leveraging Ayurvedic principles.",
+        "guest_tag": "Inde Wild"
+      },
+      {
+        "name": "Shantanu Deshpande",
+        "bio": "Founder of Bombay Shaving Company, a men's grooming brand in India.",
+        "guest_tag": "Bombay Shaving Company"
+      }
+    ]
+  },
+  "draft": {
+    "insights": [
+      {
+        "episode_part_number": 1,
+        "item_id": "I17",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Indian BPC Market Segment Breakdown",
+        "content": "A breakdown of the Indian beauty and personal care (BPC) market segments, where 'beauty' is a sub-segment of 'personal care'. The total BPC market is approximately $21 billion, with beauty constituting 40-45%. Within beauty, hair care (including mass oil brands) is estimated at $7-8 billion, skincare at $6-7 billion, and makeup and fragrance each at around $3 billion.",
+        "context": "The guests attempt to clarify market segmentation, distinguishing between mass personal care products and premium/prestige beauty categories.",
+        "metric_value": "Total BPC: $21B; Skincare: $6-7B; Haircare: $7-8B; Makeup: $3B; Fragrance: $3B",
+        "metric_unit": "USD",
+        "trend_direction": "unknown",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "00:50:06",
+        "timestamp_seconds": 3006,
+        "display_order": 1,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I18",
+        "ui_section": "market_signals",
+        "type": "metric",
+        "title": "Fastest Growing Segments: Skincare and Fragrance",
+        "content": "Skincare and fragrance are identified as the fastest-growing categories in the Indian beauty market, with growth rates around 10-13%.",
+        "context": "Discussion on which categories present the most opportunities for new founders and disruption.",
+        "metric_value": "10-13",
+        "metric_unit": "percent",
+        "trend_direction": "up",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "00:52:41",
+        "timestamp_seconds": 3161,
+        "display_order": 2,
+        "metadata": {
+          "ui_section": "market_signals",
+          "priority_score": 85,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I19",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Building Authentic Community vs. Content Creation",
+        "content": "While content creation is essential for marketing, building an authentic community (built on shared values) provides a competitive advantage that cannot be easily copied by competitors. Founders can start small by hosting events and collaborating with relevant creators/experts, rather than relying solely on being the public face of the brand.",
+        "context": "Diipa and Bhakti discuss how to market a D2C brand with limited capital, emphasizing community building over media buying.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:46:40",
+        "timestamp_seconds": 2800,
+        "category_tag": "Community & Branding",
+        "action_item": "Focus on building a genuine community from the ground up, identifying shared values, and leveraging creators who align with those values.",
+        "stage": "0-20_cr",
+        "display_order": 3,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I20",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Fragrance Market Disruption: The Masstige Gap",
+        "content": "The Indian fragrance market has a significant gap between cheap dupes (₹599-₹799) and expensive luxury brands (above ₹10,000). This 'masstige' segment (₹1,000-₹10,000) represents a huge opportunity for new brands to disrupt.",
+        "context": "Shantanu Deshpande identifies the price points where disruption is most feasible for new entrants.",
+        "speaker": "Shantanu Deshpande",
+        "timestamp_start": "00:53:14",
+        "timestamp_seconds": 3194,
+        "category_tag": "Market Opportunity",
+        "action_item": "New fragrance brands should focus on the mid-market price point (₹1,000-₹10,000) to capture consumers seeking quality between cheap dupes and luxury brands.",
+        "stage": "0-20_cr",
+        "display_order": 4,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I21",
+        "ui_section": "playbook",
+        "type": "roadmap_item",
+        "title": "Tapping into Microtrends: Gourmand Fragrances",
+        "content": "New brands can capitalize on microtrends like 'gourmand fragrances'—scents that evoke food (e.g., vanilla, pistachio, jalebi). These create a psychological connection and trigger nostalgia, making products highly desirable to consumers. This trend extends beyond fragrance to other beauty categories.",
+        "context": "Diipa discusses how Inde Wild's 'glazed jalebi' lip balm flavor leverages nostalgia and sensory appeal for market success.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:57:43",
+        "timestamp_seconds": 3463,
+        "category_tag": "Product Development",
+        "action_item": "Integrate food-inspired elements, nostalgia, and sensory experiences into products to attract consumer interest, especially in categories like fragrance and lip care.",
+        "stage": "0-20_cr",
+        "display_order": 5,
+        "metadata": {
+          "ui_section": "playbook",
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I22",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Emphasize Ingredient Transparency and Safety",
+        "content": "In fragrance and other beauty categories, consumers are increasingly demanding 'clean' ingredients and transparency. Avoid ingredients like phthalates, which are endocrine disruptors, and focus on natural or essential oil bases to appeal to health-conscious consumers.",
+        "context": "Diipa highlights the growing demand for clean fragrances, driven by health concerns over ingredients like phthalates that can cause issues like infertility.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:55:21",
+        "timestamp_seconds": 3321,
+        "polarity": "do",
+        "action_item": "Review ingredient lists (INCI) for potentially harmful chemicals and prioritize natural, transparent formulations in product development to build trust with conscious consumers.",
+        "display_order": 6,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I23",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Capitalize on Changing Consumer Mindset for Homegrown Brands",
+        "content": "While Indian consumers previously prioritized Western brands due to a 'colonial hangover,' there's a growing sense of national pride and a desire to connect with brands that reflect Indian values and experiences. Brands should leverage this shift by incorporating relatable storytelling that speaks to the Indian consumer's journey.",
+        "context": "Diipa notes the shift in consumer sentiment from valuing only Western imports to taking pride in Indian identity and brands. Bhakti emphasizes matching Western quality with Indian storytelling.",
+        "speaker": "Diipa Khosla",
+        "timestamp_start": "00:41:43",
+        "timestamp_seconds": 2503,
+        "polarity": "do",
+        "action_item": "Develop a brand narrative that resonates with the unique cultural journey and values of the Indian consumer, moving beyond simple emulation of Western brands.",
+        "display_order": 7,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "item_id": "I24",
+        "ui_section": "dos_and_donts",
+        "type": "roadmap_item",
+        "title": "Do: Develop 'Clean' Fragrances that Last",
+        "content": "For new fragrance brands, it's crucial to address the Indian market's key concern: longevity in a hot climate. While consumers demand 'clean' ingredients and reduced alcohol content, brands must innovate to ensure the fragrance lasts throughout the day, as essential oil-based fragrances often wear off too quickly.",
+        "context": "Diipa and Bhakti discuss the challenge of balancing the 'clean fragrance' trend (reducing alcohol) with the Indian consumer's demand for long-lasting scents, which often requires higher concentration.",
+        "speaker": "Bhakti Modi",
+        "timestamp_start": "00:57:11",
+        "timestamp_seconds": 3431,
+        "polarity": "do",
+        "action_item": "Innovate on fragrance formulations to provide high longevity in a hot climate while maintaining clean ingredient standards for the health-conscious consumer.",
+        "display_order": 8,
+        "metadata": {
+          "ui_section": "dos_and_donts",
+          "priority_score": 88,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ],
+    "quotes": [
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q9",
+        "quote_text": "The Eurocentric ideals of beauty, the colonial hangover, I think we, like... anything that came from the West was just way better, way superior. India could never.",
+        "author": "Diipa Khosla",
+        "timestamp": "00:42:21",
+        "timestamp_seconds": 2541,
+        "description": "Explaining the shift from blindly prioritizing Western brands to embracing Indian identity.",
+        "order_index": 1,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "inferred",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q10",
+        "quote_text": "I think content is one end, but community is on the other. Right? And I think that you have to—you can be a great content creator, but if you don't have a community that is authentic... built on a shared value, you're not really going to be able to maximize it.",
+        "author": "Bhakti Modi",
+        "timestamp": "00:46:40",
+        "timestamp_seconds": 2800,
+        "description": "On the difference between content and community.",
+        "order_index": 2,
+        "metadata": {
+          "priority_score": 95,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q11",
+        "quote_text": "You can copy product, right? You can copy branding, marketing. You can copy that. You cannot copy a community.",
+        "author": "Diipa Khosla",
+        "timestamp": "00:48:22",
+        "timestamp_seconds": 2902,
+        "description": "Highlighting the unique value of community for D2C brands.",
+        "order_index": 3,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q12",
+        "quote_text": "Today, a 25-year-old Bombay Shaving Company employee has... Is buying three new fragrances a month. So, now you're buying 10ml, 15ml, 20ml SKUs, packs of four, packs of six, packs of eight.",
+        "author": "Shantanu Deshpande",
+        "timestamp": "00:54:11",
+        "timestamp_seconds": 3251,
+        "description": "Illustrating the trend of 'perfume wardrobing' and high consumption in the fragrance market.",
+        "order_index": 4,
+        "metadata": {
+          "priority_score": 90,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q13",
+        "quote_text": "Fragrance is going to... I think it... Who is going to make the first laddu fragrance? Yeah, besan, besan ka laddu. Like a nostalgia...",
+        "author": "Nikhil Kamath",
+        "timestamp": "00:59:31",
+        "timestamp_seconds": 3571,
+        "description": "Nikhil suggesting new opportunities in the gourmand fragrance space.",
+        "order_index": 5,
+        "metadata": {
+          "priority_score": 80,
+          "confidence": 0.9,
+          "must_keep": false,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      },
+      {
+        "episode_part_number": 1,
+        "quote_id": "Q14",
+        "quote_text": "It's all about, like, you know—Cherry was the big trend. If you think of it, psychologically, food, it's such a nice place in your brain.",
+        "author": "Diipa Khosla",
+        "timestamp": "00:58:28",
+        "timestamp_seconds": 3508,
+        "description": "Discussing the psychological appeal of food-related fragrances.",
+        "order_index": 6,
+        "metadata": {
+          "priority_score": 88,
+          "confidence": 0.9,
+          "must_keep": true,
+          "speaker_quality": "explicit",
+          "timestamp_quality": "observed",
+          "youtube_link": "AdI_XWv-ZTk"
+        }
+      }
+    ]
+  },
+  "needs_verification": {
+    "quotes": [],
+    "insights": []
+  },
+  "verification_table": []
+}
