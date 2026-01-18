@@ -67,14 +67,14 @@ export const PlaybookSection = () => {
 
   return (
     <section className="py-24 bg-zinc-950 dark:bg-zinc-950 light:bg-amber-50 border-t border-white/5 dark:border-white/5 light:border-gray-200">
-      <div className="container mx-auto px-6">
+      <div className="w-full px-6">
 
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">The 0 to 100 Crore Playbook</h2>
-          <p className="text-slate-400 dark:text-slate-400 light:text-gray-600">Ananth Narayanan's scaling phases</p>
+          <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">The Playbook</h2>
+          <p className="text-slate-400 dark:text-slate-400 light:text-gray-600">Bite size lessons to play the game</p>
         </div>
 
-        <div className="space-y-4 md:space-y-8 max-w-5xl">
+        <div className="space-y-4 md:space-y-8 w-full">
           {phases.map((phase, index) => {
             const isOpen = openIndex === index;
             return (

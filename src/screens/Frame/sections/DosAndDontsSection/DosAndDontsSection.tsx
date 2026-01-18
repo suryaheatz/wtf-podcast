@@ -62,7 +62,7 @@ export const DosAndDontsSection = (): JSX.Element => {
     <section id="playbook-section" className="flex flex-col items-start gap-6 md:gap-10 pt-12 md:pt-16 w-full">
       <header className="flex flex-col md:flex-row items-start md:items-end justify-between pb-4 md:pb-5 border-b border-[#fffefe0d] dark:border-[#fffefe0d] light:border-gray-200 w-full gap-2">
         <h2 className="[font-family:'Arial-Bold',Helvetica] font-bold text-white/80 dark:text-white/80 light:text-gray-900 text-xl md:text-2xl tracking-[-0.60px] leading-8">
-          Dos and Don'ts Playbook
+          Dos and Don'ts
         </h2>
 
         <p className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs md:text-sm tracking-[0] leading-5">

@@ -19,10 +19,13 @@ const Admin = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [drafts, setDrafts] = useState<DraftEpisode[]>([]);
+  const [published, setPublished] = useState<DraftEpisode[]>([]);
   const [isLoadingDrafts, setIsLoadingDrafts] = useState(true);
+  const [isLoadingPublished, setIsLoadingPublished] = useState(true);
 
   useEffect(() => {
     fetchDrafts();
+    fetchPublished();
   }, []);
 
   const fetchDrafts = async () => {
@@ -39,6 +42,22 @@ const Admin = () => {
       setDrafts(data || []);
     }
     setIsLoadingDrafts(false);
+  };
+
+  const fetchPublished = async () => {
+    setIsLoadingPublished(true);
+    const { data, error } = await supabase
+      .from('episodes')
+      .select('id, title, youtube_video_id, framing, created_at')
+      .eq('is_published', true)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching published:', error);
+    } else {
+      setPublished(data || []);
+    }
+    setIsLoadingPublished(false);
   };
 
   const handleIngest = async () => {
@@ -115,6 +134,22 @@ const Admin = () => {
     } else {
       setMessage({ type: 'success', text: 'Episode published!' });
       setDrafts(drafts.filter(d => d.id !== episodeId));
+      fetchPublished();
+    }
+  };
+
+  const handleUnpublish = async (episodeId: string) => {
+    const { error } = await supabase
+      .from('episodes')
+      .update({ is_published: false })
+      .eq('id', episodeId);
+
+    if (error) {
+      setMessage({ type: 'error', text: 'Failed to unpublish episode' });
+    } else {
+      setMessage({ type: 'success', text: 'Episode unpublished!' });
+      setPublished(published.filter(p => p.id !== episodeId));
+      fetchDrafts();
     }
   };
 
@@ -133,8 +168,64 @@ const Admin = () => {
     } else {
       setMessage({ type: 'success', text: 'Episode deleted successfully' });
       setDrafts(drafts.filter(d => d.id !== episodeId));
+      setPublished(published.filter(p => p.id !== episodeId));
     }
   };
+
+  const EpisodeCard = ({ episode, isPublished }: { episode: DraftEpisode; isPublished: boolean }) => (
+    <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm overflow-hidden hover:border-slate-600 transition-colors">
+      <div className="flex gap-6 p-6">
+        <div className="flex-shrink-0">
+          <img
+            src={`https://img.youtube.com/vi/${episode.youtube_video_id}/mqdefault.jpg`}
+            alt={episode.title}
+            className="w-48 h-28 object-cover rounded-lg"
+          />
+        </div>
+
+        <div className="flex-grow">
+          <h3 className="text-xl font-bold text-white mb-2">{episode.title}</h3>
+          <p className="text-slate-400 text-sm mb-4 line-clamp-2">{episode.framing}</p>
+          <div className="text-xs text-slate-500">
+            Created: {new Date(episode.created_at).toLocaleDateString()}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3 justify-center">
+          <Button
+            onClick={() => navigate(`/episode/${episode.id}`)}
+            variant="outline"
+            className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white"
+          >
+            REVIEW
+          </Button>
+          {!isPublished && (
+            <Button
+              onClick={() => handlePublish(episode.id)}
+              className="bg-green-600 hover:bg-green-700 text-white"
+            >
+              PUBLISH
+            </Button>
+          )}
+          {isPublished && (
+            <Button
+              onClick={() => handleUnpublish(episode.id)}
+              className="bg-yellow-600 hover:bg-yellow-700 text-white"
+            >
+              UNPUBLISH
+            </Button>
+          )}
+          <Button
+            onClick={() => handleDelete(episode.id, episode.title)}
+            variant="outline"
+            className="border-red-600 text-red-400 hover:bg-red-600 hover:text-white"
+          >
+            DELETE
+          </Button>
+        </div>
+      </div>
+    </Card>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -211,7 +302,7 @@ const Admin = () => {
           </div>
         </Card>
 
-        <div>
+        <div className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Draft Episodes</h2>
 
           {isLoadingDrafts ? (
@@ -223,51 +314,25 @@ const Admin = () => {
           ) : (
             <div className="grid gap-6">
               {drafts.map((draft) => (
-                <Card
-                  key={draft.id}
-                  className="bg-slate-800/50 border-slate-700 backdrop-blur-sm overflow-hidden hover:border-slate-600 transition-colors"
-                >
-                  <div className="flex gap-6 p-6">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={`https://img.youtube.com/vi/${draft.youtube_video_id}/mqdefault.jpg`}
-                        alt={draft.title}
-                        className="w-48 h-28 object-cover rounded-lg"
-                      />
-                    </div>
+                <EpisodeCard key={draft.id} episode={draft} isPublished={false} />
+              ))}
+            </div>
+          )}
+        </div>
 
-                    <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-white mb-2">{draft.title}</h3>
-                      <p className="text-slate-400 text-sm mb-4 line-clamp-2">{draft.framing}</p>
-                      <div className="text-xs text-slate-500">
-                        Created: {new Date(draft.created_at).toLocaleDateString()}
-                      </div>
-                    </div>
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-6">Published Episodes</h2>
 
-                    <div className="flex flex-col gap-3 justify-center">
-                      <Button
-                        onClick={() => navigate(`/episode/${draft.id}`)}
-                        variant="outline"
-                        className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white"
-                      >
-                        REVIEW
-                      </Button>
-                      <Button
-                        onClick={() => handlePublish(draft.id)}
-                        className="bg-green-600 hover:bg-green-700 text-white"
-                      >
-                        PUBLISH
-                      </Button>
-                      <Button
-                        onClick={() => handleDelete(draft.id, draft.title)}
-                        variant="outline"
-                        className="border-red-600 text-red-400 hover:bg-red-600 hover:text-white"
-                      >
-                        DELETE
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
+          {isLoadingPublished ? (
+            <div className="text-center py-12 text-slate-400">Loading published episodes...</div>
+          ) : published.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-slate-400 text-lg">No published episodes yet.</p>
+            </div>
+          ) : (
+            <div className="grid gap-6">
+              {published.map((episode) => (
+                <EpisodeCard key={episode.id} episode={episode} isPublished={true} />
               ))}
             </div>
           )}
