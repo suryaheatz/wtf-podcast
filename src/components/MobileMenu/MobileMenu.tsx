@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HomeIcon, ActivityIcon, BookOpenIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon, XIcon } from "lucide-react";
+import { HomeIcon, ActivityIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon, XIcon } from "lucide-react";
 import { useTheme } from "../../contexts/ThemeContext";
 
 interface MobileMenuProps {
@@ -13,7 +13,6 @@ interface MobileMenuProps {
 const menuItems = [
   { id: "home", label: "Home", icon: HomeIcon, sectionId: "hero-section" },
   { id: "signals", label: "Market Signals", icon: ActivityIcon, sectionId: "signals-section" },
-  { id: "chapters", label: "Knowledge Chapters", icon: BookOpenIcon, sectionId: "chapters-section" },
   { id: "quotes", label: "Voice of Authority", icon: MessageSquareQuoteIcon, sectionId: "quotes-section" },
   { id: "playbook", label: "Founder Playbook", icon: ClipboardListIcon, sectionId: "playbook-section" },
 ];

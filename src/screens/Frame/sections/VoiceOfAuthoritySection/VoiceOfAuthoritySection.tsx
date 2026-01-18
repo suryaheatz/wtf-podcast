@@ -7,14 +7,35 @@ interface VoiceOfAuthoritySectionProps {
   onTimestampClick: (timestamp: string) => void;
   podcastId?: string;
   episodeId?: string | null;
+  chunkNumber?: number | null;
+  chunkSizeMinutes?: number;
 }
+
+const getChunkRange = (chunkNumber?: number | null, chunkSizeMinutes = 20) => {
+  if (!chunkNumber || chunkNumber < 1) return null;
+  const start = (chunkNumber - 1) * chunkSizeMinutes * 60;
+  const end = chunkNumber * chunkSizeMinutes * 60;
+  return { start, end };
+};
 
 export const VoiceOfAuthoritySection = ({
   onTimestampClick,
   podcastId = '550e8400-e29b-41d4-a716-446655440000',
   episodeId = null,
+  chunkNumber = null,
+  chunkSizeMinutes = 20,
 }: VoiceOfAuthoritySectionProps): JSX.Element => {
   const { data: quotes, loading, error } = useQuotes(episodeId || undefined, episodeId ? undefined : podcastId);
+
+  const chunkRange = getChunkRange(chunkNumber, chunkSizeMinutes);
+  const filteredQuotes = React.useMemo(() => {
+    if (!quotes) return [];
+    if (!chunkRange) return quotes;
+    return quotes.filter((quote) => {
+      const seconds = quote.timestamp_seconds;
+      return Number.isFinite(seconds) && seconds >= chunkRange.start && seconds < chunkRange.end;
+    });
+  }, [quotes, chunkRange]);
 
   if (loading) {
     return (
@@ -49,7 +70,7 @@ export const VoiceOfAuthoritySection = ({
     );
   }
 
-  if (!quotes || quotes.length === 0) {
+  if (!quotes || filteredQuotes.length === 0) {
     return (
       <section id="quotes-section" className="flex flex-col items-start gap-6 md:gap-10 pt-12 md:pt-16 pb-12 md:pb-16 w-full">
         <header className="flex flex-col md:flex-row items-start md:items-end justify-between pb-4 md:pb-5 border-b border-[#fffefe0d] dark:border-[#fffefe0d] light:border-gray-200 w-full gap-2">
@@ -59,13 +80,15 @@ export const VoiceOfAuthoritySection = ({
         </header>
         <div className="w-full">
           <SwipeableCardStack autoPlayInterval={5000}>
-            <QuoteCard
-              key="fallback-quote"
-              quote={`'An idle mind is the devil\'s workshop' is a proverb meaning that when people have nothing productive to do, they are more likely to get into bad track, as the mind naturally fills with negative ideas if not occupied withnoble pursuits`}
-              author="PROVERB"
-              gradient="from-[#1a1a1a] to-[#252525]"
-              onTimestampClick={onTimestampClick}
-            />
+            {[
+              <QuoteCard
+                key="fallback-quote"
+                quote={`'An idle mind is the devil\'s workshop' is a proverb meaning that when people have nothing productive to do, they are more likely to get into bad track, as the mind naturally fills with negative ideas if not occupied withnoble pursuits`}
+                author="PROVERB"
+                gradient="from-[#1a1a1a] to-[#252525]"
+                onTimestampClick={onTimestampClick}
+              />,
+            ]}
           </SwipeableCardStack>
         </div>
       </section>
@@ -86,7 +109,7 @@ export const VoiceOfAuthoritySection = ({
 
       <div className="w-full">
         <SwipeableCardStack autoPlayInterval={5000}>
-          {quotes.map((quote) => (
+          {filteredQuotes.map((quote) => (
             <QuoteCard
               key={quote.id}
               quote={quote.quote_text}

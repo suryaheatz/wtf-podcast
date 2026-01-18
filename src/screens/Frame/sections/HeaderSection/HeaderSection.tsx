@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../../../../components/ui/button";
 import { EpisodesModal } from "../../../../components/EpisodesCalendar";
 import { useEpisodes } from "../../../../hooks/usePodcastData";
-import { HomeIcon, ActivityIcon, BookOpenIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon, MenuIcon, Sun, Moon } from "lucide-react";
+import { HomeIcon, ActivityIcon, MessageSquareQuoteIcon, ClipboardListIcon, SparklesIcon, MenuIcon, Sun, Moon } from "lucide-react";
 import { MobileMenu } from "../../../../components/MobileMenu";
 import { useTheme } from "../../../../contexts/ThemeContext";
 import { useNavigate } from "react-router-dom";
@@ -29,12 +29,6 @@ const navItems: NavItem[] = [
     sectionId: "signals-section",
   },
   {
-    id: "chapters",
-    label: "Chapters",
-    icon: <BookOpenIcon className="w-4 h-4 md:w-5 md:h-5" />,
-    sectionId: "chapters-section",
-  },
-  {
     id: "quotes",
     label: "Quotes",
     icon: <MessageSquareQuoteIcon className="w-4 h-4 md:w-5 md:h-5" />,
@@ -54,10 +48,10 @@ interface HeaderSectionProps {
 
 export const HeaderSection = ({ onAIClick }: HeaderSectionProps): JSX.Element => {
   const { theme, toggleTheme } = useTheme();
-  const { data: dbEpisodes, loading: episodesLoading } = useEpisodes('550e8400-e29b-41d4-a716-446655440000');
+  const { data: dbEpisodes } = useEpisodes('550e8400-e29b-41d4-a716-446655440000');
   const [isEpisodesOpen, setIsEpisodesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("chapters");
+  const [activeSection, setActiveSection] = useState<string>("home");
   const [showHeader, setShowHeader] = useState(false);
   const navigate = useNavigate();
 

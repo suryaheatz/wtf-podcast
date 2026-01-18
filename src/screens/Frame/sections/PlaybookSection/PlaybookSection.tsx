@@ -33,9 +33,24 @@ interface PlaybookSectionProps {
   episodeId?: string | null;
   onTimestampClick?: (timestamp: string) => void;
   youtubeVideoId?: string | null;
+  chunkNumber?: number | null;
+  chunkSizeMinutes?: number;
 }
 
-export const PlaybookSection = ({ episodeId = null, youtubeVideoId = null, onTimestampClick }: PlaybookSectionProps) => {
+const getChunkRange = (chunkNumber?: number | null, chunkSizeMinutes = 20) => {
+  if (!chunkNumber || chunkNumber < 1) return null;
+  const start = (chunkNumber - 1) * chunkSizeMinutes * 60;
+  const end = chunkNumber * chunkSizeMinutes * 60;
+  return { start, end };
+};
+
+export const PlaybookSection = ({
+  episodeId = null,
+  youtubeVideoId = null,
+  onTimestampClick,
+  chunkNumber = null,
+  chunkSizeMinutes = 20,
+}: PlaybookSectionProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const handleTimestampClick = (timestamp?: string | null) => {
@@ -43,16 +58,20 @@ export const PlaybookSection = ({ episodeId = null, youtubeVideoId = null, onTim
     onTimestampClick(timestamp);
   };
 
-  // ✅ EXACT POSITION: replace your current hook line with this (cast included)
-  const { data: rawItems, loading } = useInsightsByType(episodeId, "roadmap_item") as {
-    data: EpisodeInsightRow[] | null;
-    loading: boolean;
-  };
+  const { data: rawItems, loading } = useInsightsByType(episodeId, "roadmap_item");
 
   const items = React.useMemo(() => {
-    if (!rawItems || rawItems.length === 0) return [] as PlaybookItem[];
+    const normalizedItems = (rawItems ?? []) as EpisodeInsightRow[];
+    if (normalizedItems.length === 0) return [] as PlaybookItem[];
+    const chunkRange = getChunkRange(chunkNumber, chunkSizeMinutes);
+    const filteredItems = !chunkRange
+      ? normalizedItems
+      : normalizedItems.filter((item) => {
+          const seconds = item.timestamp_seconds;
+          return Number.isFinite(seconds) && seconds >= chunkRange.start && seconds < chunkRange.end;
+        });
 
-    const sortedItems = [...rawItems].sort(
+    const sortedItems = [...filteredItems].sort(
       (a, b) => (a.display_order ?? 0) - (b.display_order ?? 0)
     );
 
@@ -73,7 +92,7 @@ export const PlaybookSection = ({ episodeId = null, youtubeVideoId = null, onTim
           ),
         } as PlaybookItem;
       });
-  }, [rawItems, youtubeVideoId]);
+  }, [rawItems, youtubeVideoId, chunkNumber, chunkSizeMinutes]);
 
   if (loading)
     return (

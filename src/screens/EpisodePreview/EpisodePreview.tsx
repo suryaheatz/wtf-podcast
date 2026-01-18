@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { DosAndDontsSection } from "../Frame/sections/DosAndDontsSection";
 import { HeaderSection } from "../Frame/sections/HeaderSection";
 import { HeroSection } from "../Frame/sections/HeroSection";
-import { KnowledgeChaptersSection } from "../Frame/sections/KnowledgeChaptersSection";
+import { EpisodeChunksSection } from "../Frame/sections/EpisodeChunksSection";
 import { MarketSignalsSection } from "../Frame/sections/MarketSignalsSection";
 import { PlaybookSection } from "../Frame/sections/PlaybookSection";
 import { VoiceOfAuthoritySection } from "../Frame/sections/VoiceOfAuthoritySection";
@@ -13,7 +13,6 @@ import { PictureInPicturePlayer } from "../../components/PictureInPicturePlayer"
 import { SectionDivider } from "../../components/ui/section-divider";
 import { useEpisodeWithDetails } from "../../hooks/usePodcastData";
 import { Button } from "../../components/ui/button";
-import EpisodeNavArrows from "../../components/ui/EpisodeNavArrows";
 
 
 const timeToSeconds = (timestamp: string): number => {
@@ -33,6 +32,7 @@ const EpisodePreview = (): JSX.Element => {
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
   const [isPIPOpen, setIsPIPOpen] = useState(false);
   const [pipStartTime, setPipStartTime] = useState(0);
+  const [activeChunk, setActiveChunk] = useState(1);
 
   const { data: episode, loading, error } = useEpisodeWithDetails(id || null);
 
@@ -75,7 +75,6 @@ const EpisodePreview = (): JSX.Element => {
 
   return (
     <div className="w-full flex flex-col bg-black dark:bg-black light:bg-white min-h-screen">
-       <EpisodeNavArrows />
       <div className="bg-slate-900/80 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -103,24 +102,31 @@ const EpisodePreview = (): JSX.Element => {
         <div className="w-full py-4 md:py-6">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#fffefe0d] to-transparent dark:via-[#fffefe0d] light:via-gray-200" />
         </div>
-        <MarketSignalsSection episodeId={episode?.id} />
+        <EpisodeChunksSection
+          episode={episode}
+          activeChunk={activeChunk}
+          onChunkChange={setActiveChunk}
+        />
         <SectionDivider />
-        <KnowledgeChaptersSection onTimestampClick={handleTimestampClick} />
+        <MarketSignalsSection episodeId={episode?.id} chunkNumber={activeChunk} />
         <SectionDivider />
         <VoiceOfAuthoritySection
           onTimestampClick={handleTimestampClick}
           episodeId={episode?.id}
+          chunkNumber={activeChunk}
         />
         <SectionDivider />
         <DosAndDontsSection
           episodeId={episode?.id}
           onTimestampClick={handleTimestampClick}
+          chunkNumber={activeChunk}
         />
         <SectionDivider />
         <PlaybookSection
           onTimestampClick={handleTimestampClick}
           episodeId={episode?.id}
           youtubeVideoId={youtubeVideoId}
+          chunkNumber={activeChunk}
         />
       </main>
       <Footer />

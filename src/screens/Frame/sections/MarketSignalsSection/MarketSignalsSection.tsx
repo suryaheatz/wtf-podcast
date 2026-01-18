@@ -6,13 +6,34 @@ import { SVGPattern } from '../../../../lib/svg-patterns';
 
 interface MarketSignalsSectionProps {
   episodeId?: string | null;
+  chunkNumber?: number | null;
+  chunkSizeMinutes?: number;
 }
 
-export const MarketSignalsSection = ({ episodeId = null }: MarketSignalsSectionProps) => {
+const getChunkRange = (chunkNumber?: number | null, chunkSizeMinutes = 20) => {
+  if (!chunkNumber || chunkNumber < 1) return null;
+  const start = (chunkNumber - 1) * chunkSizeMinutes * 60;
+  const end = chunkNumber * chunkSizeMinutes * 60;
+  return { start, end };
+};
+
+export const MarketSignalsSection = ({
+  episodeId = null,
+  chunkNumber = null,
+  chunkSizeMinutes = 20,
+}: MarketSignalsSectionProps) => {
   // 1. Fetch Data from Supabase
   const { data: metrics, loading, error } = useInsightsByType(episodeId, 'metric');
+  const chunkRange = getChunkRange(chunkNumber, chunkSizeMinutes);
 
-  const displayMetrics = (metrics && metrics.length > 0) ? metrics : [];
+  const displayMetrics = React.useMemo(() => {
+    const list = metrics ?? [];
+    if (!chunkRange) return list;
+    return list.filter((metric) => {
+      const seconds = metric.timestamp_seconds;
+      return Number.isFinite(seconds) && seconds >= chunkRange.start && seconds < chunkRange.end;
+    });
+  }, [metrics, chunkRange]);
 
   // 3. Helper to render the correct arrow based on database value
   const renderTrendIcon = (direction: string | null | undefined) => {

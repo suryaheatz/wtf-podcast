@@ -358,6 +358,18 @@ export interface GuestWithTag {
 export interface EpisodeInsight extends Database['public']['Tables']['episode_insights']['Row'] {}
 
 export interface EpisodeWithDetails extends Database['public']['Tables']['episodes']['Row'] {
+  id: string
+  episode_number: number
+  title: string
+  description: string | null
+  framing: string | null
+  guest_name: string | null
+  guest_bio: string | null
+  youtube_video_id: string | null
+  duration_minutes: number
+  release_date: string
+  thumbnail_url: string | null
+  metadata: Json
   podcast_name?: string
   podcast_slug?: string
   guests?: GuestWithTag[]
