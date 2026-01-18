@@ -61,7 +61,7 @@ export const VoiceOfAuthoritySection = ({
           <SwipeableCardStack autoPlayInterval={5000}>
             <QuoteCard
               key="fallback-quote"
-              quote={`"An idle mind is the devil's workshop" is a proverb meaning that when people have nothing productive to do, they are more likely to think bad thoughts, get into trouble, or engage in mischief, as the mind naturally fills with negative or wasteful ideas if not occupied with good work or noble pursuits`}
+              quote={`'An idle mind is the devil\'s workshop' is a proverb meaning that when people have nothing productive to do, they are more likely to get into bad track, as the mind naturally fills with negative ideas if not occupied withnoble pursuits`}
               author="PROVERB"
               gradient="from-[#1a1a1a] to-[#252525]"
               onTimestampClick={onTimestampClick}
