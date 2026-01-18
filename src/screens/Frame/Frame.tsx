@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CallToActionSection } from "./sections/CallToActionSection";
 import { DosAndDontsSection } from "./sections/DosAndDontsSection";
 import { HeaderSection } from "./sections/HeaderSection";
 import { HeroSection } from "./sections/HeroSection";
@@ -51,9 +50,7 @@ export const Frame = (): JSX.Element => {
         <div className="w-full py-4 md:py-6">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#fffefe0d] to-transparent dark:via-[#fffefe0d] light:via-gray-200" />
         </div>
-        <CallToActionSection />
-        <SectionDivider />
-        <MarketSignalsSection />
+        <MarketSignalsSection episodeId={episode?.id ?? currentEpisodeId} />
         <SectionDivider />
         <KnowledgeChaptersSection onTimestampClick={handleTimestampClick} />
         <SectionDivider />
@@ -62,7 +59,7 @@ export const Frame = (): JSX.Element => {
           episodeId={episode?.id ?? currentEpisodeId}
         />
         <SectionDivider />
-        <DosAndDontsSection />
+        <DosAndDontsSection episodeId={episode?.id ?? currentEpisodeId} />
         <SectionDivider />
         <PlaybookSection
           onTimestampClick={handleTimestampClick}

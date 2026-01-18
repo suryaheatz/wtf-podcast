@@ -1,63 +1,59 @@
 import { CheckCircle2Icon, XCircleIcon } from "lucide-react";
 import React from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { useInsightsByType } from "../../../../hooks/usePodcastData";
+import type { EpisodeInsight } from "../../../../types/database";
 
-const dosAndDonts = {
-  dos: [
-    {
-      title: "Focus on India 1 Demographic",
-      description: "Target the top 30M households that drive 60-70% of consumption value.",
-    },
-    {
-      title: "Build Product-Market Fit First",
-      description: "0-20Cr phase must be built on authentic product reviews and community, not ads.",
-    },
-    {
-      title: "Maintain 80/20 Distribution Mix",
-      description: "Keep 80% marketplace and 20% D2C split for healthy cash flow in early stages.",
-    },
-    {
-      title: "Create Your Hero SKU",
-      description: "Identify and double down on your flagship product that drives majority of revenue.",
-    },
-    {
-      title: "Use ECG Content Strategy",
-      description: "Balance Evergreen, Controversial, and Growth content to build organic attention.",
-    },
-    {
-      title: "Invest in Supply Chain Early",
-      description: "Offline distribution becomes critical post-100Cr; prepare infrastructure beforehand.",
-    },
-  ],
-  donts: [
-    {
-      title: "Don't Use Performance Marketing Too Early",
-      description: "Burning cash on ads before PMF artificially inflates growth and destroys unit economics.",
-    },
-    {
-      title: "Don't Target All 1.4 Billion People",
-      description: "Mass market approach dilutes brand positioning. Focus beats reach in consumer brands.",
-    },
-    {
-      title: "Don't Skip Community Building",
-      description: "Brands that scale without authentic community face customer retention issues later.",
-    },
-    {
-      title: "Don't Ignore Unit Economics",
-      description: "Growing revenue without profitable unit economics is building a house of cards.",
-    },
-    {
-      title: "Don't Over-Index on D2C Only",
-      description: "Pure D2C models struggle with scale. Marketplaces provide necessary distribution reach.",
-    },
-    {
-      title: "Don't Delay Offline Strategy",
-      description: "Waiting until 100Cr to think about offline means losing 2 years of market development.",
-    },
-  ],
-};
+interface DosAndDontsSectionProps {
+  episodeId?: string | null;
+}
 
-export const DosAndDontsSection = (): JSX.Element => {
+export const DosAndDontsSection = ({ episodeId = null }: DosAndDontsSectionProps): JSX.Element => {
+  const { data: rawItems, loading, error } = useInsightsByType(episodeId, "roadmap_item");
+
+  const { dos, donts } = React.useMemo(() => {
+    const items = (rawItems ?? []) as EpisodeInsight[];
+    const dos: EpisodeInsight[] = [];
+    const donts: EpisodeInsight[] = [];
+
+    for (const item of items) {
+      const metadata = (item.metadata as any) ?? {};
+      if (metadata.polarity === "do") dos.push(item);
+      if (metadata.polarity === "dont") donts.push(item);
+    }
+
+    return { dos, donts };
+  }, [rawItems]);
+
+  if (loading) {
+    return (
+      <section id="playbook-section" className="flex flex-col items-start gap-6 md:gap-10 pt-12 md:pt-16 w-full">
+        <header className="flex flex-col md:flex-row items-start md:items-end justify-between pb-4 md:pb-5 border-b border-[#fffefe0d] dark:border-[#fffefe0d] light:border-gray-200 w-full gap-2">
+          <h2 className="[font-family:'Arial-Bold',Helvetica] font-bold text-white/80 dark:text-white/80 light:text-gray-900 text-xl md:text-2xl tracking-[-0.60px] leading-8">
+            Dos and Don'ts
+          </h2>
+        </header>
+        <div className="w-full text-center text-slate-400 dark:text-slate-400 light:text-gray-600">
+          Loading do's and don'ts...
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="playbook-section" className="flex flex-col items-start gap-6 md:gap-10 pt-12 md:pt-16 w-full">
+        <header className="flex flex-col md:flex-row items-start md:items-end justify-between pb-4 md:pb-5 border-b border-[#fffefe0d] dark:border-[#fffefe0d] light:border-gray-200 w-full gap-2">
+          <h2 className="[font-family:'Arial-Bold',Helvetica] font-bold text-white/80 dark:text-white/80 light:text-gray-900 text-xl md:text-2xl tracking-[-0.60px] leading-8">
+            Dos and Don'ts
+          </h2>
+        </header>
+        <div className="w-full text-center text-red-500 dark:text-red-500 light:text-red-700">
+          Error loading do's and don'ts.
+        </div>
+      </section>
+    );
+  }
   return (
     <section id="playbook-section" className="flex flex-col items-start gap-6 md:gap-10 pt-12 md:pt-16 w-full">
       <header className="flex flex-col md:flex-row items-start md:items-end justify-between pb-4 md:pb-5 border-b border-[#fffefe0d] dark:border-[#fffefe0d] light:border-gray-200 w-full gap-2">
@@ -83,7 +79,11 @@ export const DosAndDontsSection = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col gap-4">
-              {dosAndDonts.dos.map((item, index) => (
+              {dos.length === 0 ? (
+                <div className="text-sm text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600">
+                  No do items available for this episode.
+                </div>
+              ) : dos.map((item, index) => (
                 <div
                   key={index}
                   className="flex gap-3 p-4 rounded-xl bg-zinc-900/50 dark:bg-zinc-900/50 light:bg-white border border-emerald-900/20 dark:border-emerald-900/20 light:border-emerald-100 hover:border-emerald-800/40 dark:hover:border-emerald-800/40 light:hover:border-emerald-400 transition-all duration-200 group"
@@ -93,10 +93,10 @@ export const DosAndDontsSection = (): JSX.Element => {
                   </div>
                   <div className="flex-1 android-flex-fix">
                     <h4 className="[font-family:'Arial-Bold',Helvetica] font-bold text-white dark:text-white light:text-gray-900 text-sm md:text-base tracking-[0] leading-5 mb-1.5 mobile-text-stable">
-                      {item.title}
+                      {item.title || "Do"}
                     </h4>
                     <p className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs md:text-sm tracking-[0] leading-5 mobile-text-stable">
-                      {item.description}
+                      {item.content || item.context || ""}
                     </p>
                   </div>
                 </div>
@@ -117,7 +117,11 @@ export const DosAndDontsSection = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col gap-4">
-              {dosAndDonts.donts.map((item, index) => (
+              {donts.length === 0 ? (
+                <div className="text-sm text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600">
+                  No don't items available for this episode.
+                </div>
+              ) : donts.map((item, index) => (
                 <div
                   key={index}
                   className="flex gap-3 p-4 rounded-xl bg-zinc-900/50 dark:bg-zinc-900/50 light:bg-white border border-red-900/20 dark:border-red-900/20 light:border-rose-100 hover:border-red-800/40 dark:hover:border-red-800/40 light:hover:border-rose-400 transition-all duration-200 group"
@@ -127,10 +131,10 @@ export const DosAndDontsSection = (): JSX.Element => {
                   </div>
                   <div className="flex-1 android-flex-fix">
                     <h4 className="[font-family:'Arial-Bold',Helvetica] font-bold text-white dark:text-white light:text-gray-900 text-sm md:text-base tracking-[0] leading-5 mb-1.5 mobile-text-stable">
-                      {item.title}
+                      {item.title || "Don't"}
                     </h4>
                     <p className="[font-family:'Arial-Regular',Helvetica] font-normal text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600 text-xs md:text-sm tracking-[0] leading-5 mobile-text-stable">
-                      {item.description}
+                      {item.content || item.context || ""}
                     </p>
                   </div>
                 </div>

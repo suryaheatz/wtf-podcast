@@ -1,44 +1,18 @@
 import React from 'react';
 import { ArrowUpRight, ArrowDownRight, Minus } from 'lucide-react';
 import { useInsightsByType } from '../../../../hooks/usePodcastData';
-import { currentEpisodeId } from '../../../../data/episodes';
 import type { EpisodeInsight } from '../../../../types/database';
 import { SVGPattern } from '../../../../lib/svg-patterns';
 
-// Fallback data in case DB is empty (prevents broken UI during development)
-const HARDCODED_FALLBACK = [
-  {
-    title: 'INDIA 1 SIZE',
-    metric_value: '120 Million',
-    metric_unit: 'People',
-    content: 'The consuming class (Singapore/Poland/Mexico) driving 85% of premium consumption.',
-    trend_direction: 'up',
-    category_tag: 'MARKET SIZE',
-  },
-  {
-    title: 'HERO SKU RULE',
-    metric_value: '30%',
-    metric_unit: 'Revenue Share',
-    content: 'One product should drive 30% of total revenue for D2C brands at scale.',
-    trend_direction: 'up',
-    category_tag: 'PRODUCT STRATEGY',
-  },
-  {
-    title: 'MARKETPLACE MIX',
-    metric_value: '80/20',
-    metric_unit: 'Split Ratio',
-    content: 'Maintain 80% marketplace, 20% D2C for optimal cash flow in early stages.',
-    trend_direction: 'neutral',
-    category_tag: 'CHANNEL STRATEGY',
-  },
-];
+interface MarketSignalsSectionProps {
+  episodeId?: string | null;
+}
 
-export const MarketSignalsSection = () => {
+export const MarketSignalsSection = ({ episodeId = null }: MarketSignalsSectionProps) => {
   // 1. Fetch Data from Supabase
-  const { data: metrics, loading, error } = useInsightsByType(currentEpisodeId, 'metric');
+  const { data: metrics, loading, error } = useInsightsByType(episodeId, 'metric');
 
-  // 2. Determine what to show (DB Data OR Fallback)
-  const displayMetrics = (metrics && metrics.length > 0) ? metrics : HARDCODED_FALLBACK;
+  const displayMetrics = (metrics && metrics.length > 0) ? metrics : [];
 
   // 3. Helper to render the correct arrow based on database value
   const renderTrendIcon = (direction: string | null | undefined) => {
@@ -53,6 +27,7 @@ export const MarketSignalsSection = () => {
   };
 
   if (loading) return <div className="p-10 text-center text-slate-500 dark:text-slate-500 light:text-gray-600">Loading Market Signals...</div>;
+  if (error) return <div className="p-10 text-center text-red-500 dark:text-red-500 light:text-red-700">Error loading Market Signals.</div>;
 
   return (
     <section id="signals-section" className="flex flex-col items-start gap-6 md:gap-10 pt-12 md:pt-16 w-full">
@@ -69,7 +44,11 @@ export const MarketSignalsSection = () => {
       {/* The Grid - Horizontal scroll on mobile, grid on desktop */}
       <div className="w-full overflow-x-auto md:overflow-x-visible -mx-6 px-6 md:mx-0 md:px-0">
         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 min-w-max md:min-w-0 md:w-full snap-x snap-mandatory md:snap-none">
-          {displayMetrics.map((metric: any, index: number) => (
+          {displayMetrics.length === 0 ? (
+            <div className="text-slate-400 dark:text-slate-400 light:text-gray-600">
+              No market signals available for this episode.
+            </div>
+          ) : displayMetrics.map((metric: any, index: number) => (
             <div
               key={index}
               className="group relative overflow-hidden p-5 md:p-6 rounded-xl md:rounded-2xl bg-zinc-900/50 dark:bg-zinc-900/50 light:bg-white border border-[#fffefe0d] dark:border-[#fffefe0d] light:border-gray-200 hover:border-blue-500/30 dark:hover:border-blue-500/30 light:hover:border-blue-500 transition-all duration-300 min-w-[280px] md:min-w-0 snap-center"

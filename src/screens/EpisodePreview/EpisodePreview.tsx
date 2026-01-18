@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { CallToActionSection } from "../Frame/sections/CallToActionSection";
 import { DosAndDontsSection } from "../Frame/sections/DosAndDontsSection";
 import { HeaderSection } from "../Frame/sections/HeaderSection";
 import { HeroSection } from "../Frame/sections/HeroSection";
@@ -104,9 +103,7 @@ const EpisodePreview = (): JSX.Element => {
         <div className="w-full py-4 md:py-6">
           <div className="w-full h-px bg-gradient-to-r from-transparent via-[#fffefe0d] to-transparent dark:via-[#fffefe0d] light:via-gray-200" />
         </div>
-        <CallToActionSection />
-        <SectionDivider />
-        <MarketSignalsSection />
+        <MarketSignalsSection episodeId={episode?.id} />
         <SectionDivider />
         <KnowledgeChaptersSection onTimestampClick={handleTimestampClick} />
         <SectionDivider />
@@ -115,7 +112,7 @@ const EpisodePreview = (): JSX.Element => {
           episodeId={episode?.id}
         />
         <SectionDivider />
-        <DosAndDontsSection />
+        <DosAndDontsSection episodeId={episode?.id} />
         <SectionDivider />
         <PlaybookSection
           onTimestampClick={handleTimestampClick}
