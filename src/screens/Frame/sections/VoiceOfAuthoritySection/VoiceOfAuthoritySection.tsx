@@ -6,10 +6,15 @@ import { useQuotes } from "../../../../hooks/usePodcastData";
 interface VoiceOfAuthoritySectionProps {
   onTimestampClick: (timestamp: string) => void;
   podcastId?: string;
+  episodeId?: string | null;
 }
 
-export const VoiceOfAuthoritySection = ({ onTimestampClick, podcastId = '550e8400-e29b-41d4-a716-446655440000' }: VoiceOfAuthoritySectionProps): JSX.Element => {
-  const { data: quotes, loading, error } = useQuotes(undefined, podcastId);
+export const VoiceOfAuthoritySection = ({
+  onTimestampClick,
+  podcastId = '550e8400-e29b-41d4-a716-446655440000',
+  episodeId = null,
+}: VoiceOfAuthoritySectionProps): JSX.Element => {
+  const { data: quotes, loading, error } = useQuotes(episodeId || undefined, episodeId ? undefined : podcastId);
 
   if (loading) {
     return (
@@ -52,8 +57,16 @@ export const VoiceOfAuthoritySection = ({ onTimestampClick, podcastId = '550e840
             Voice of Authority
           </h2>
         </header>
-        <div className="w-full flex items-center justify-center py-12">
-          <p className="text-[#9e9ea9] dark:text-[#9e9ea9] light:text-gray-600">No quotes available</p>
+        <div className="w-full">
+          <SwipeableCardStack autoPlayInterval={5000}>
+            <QuoteCard
+              key="fallback-quote"
+              quote={`"An idle mind is the devil's workshop" is a proverb meaning that when people have nothing productive to do, they are more likely to think bad thoughts, get into trouble, or engage in mischief, as the mind naturally fills with negative or wasteful ideas if not occupied with good work or noble pursuits`}
+              author="PROVERB"
+              gradient="from-[#1a1a1a] to-[#252525]"
+              onTimestampClick={onTimestampClick}
+            />
+          </SwipeableCardStack>
         </div>
       </section>
     );
