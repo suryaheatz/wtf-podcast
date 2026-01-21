@@ -219,11 +219,11 @@ export const SwipeableCardStack = ({
               <button
                 key={index}
                 onClick={() => goToCard(index)}
-                className={`transition-all duration-300 ${
-                  index === currentIndex
-                    ? "w-8 h-2 bg-[#2b7fff]"
-                    : "w-2 h-2 bg-[#ffffff33] hover:bg-[#ffffff66]"
-                } rounded-full`}
+                className={`rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "w-8 h-2 bg-[#2b7fff]"
+                  : "w-2 h-2 light:bg-slate-300 light:hover:bg-slate-400 dark:bg-white/20 dark:hover:bg-white/35"
+                }`}
                 aria-label={`Go to card ${index + 1}`}
                 aria-current={index === currentIndex}
               />
@@ -232,20 +232,26 @@ export const SwipeableCardStack = ({
 
           {autoPlayInterval > 0 && (
             <div className="flex justify-center items-center gap-3 mt-2">
-              <span className="text-sm text-[#9e9ea9] [font-family:'Arial-Regular',Helvetica]">
+              <span className="text-sm font-medium text-slate-600 dark:text-[#9e9ea9] light:text-slate-600">
                 Auto-Play
               </span>
               <button
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  isAutoPlaying ? "bg-[#2b7fff]" : "bg-[#ffffff1a]"
-                }`}
-                aria-label={isAutoPlaying ? "Pause auto-play" : "Start auto-play"}
-                role="switch"
-                aria-checked={isAutoPlaying}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2b7fff]/40 focus-visible:ring-offset-2
+                light:ring-offset-white dark:ring-offset-black
+              ${isAutoPlaying? "bg-[#2b7fff]"
+              : "light:bg-slate-200 light:border light:border-slate-300 dark:bg-white/10 dark:border dark:border-white/10"
+              }
+            `}
+            aria-label={isAutoPlaying ? "Pause auto-play" : "Start auto-play"}
+            role="switch"
+            aria-checked={isAutoPlaying}
               >
                 <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform
+                            light:border light:border-slate-300 dark:border dark:border-transparent
+                            light:shadow-sm ${
                     isAutoPlaying ? "translate-x-6" : "translate-x-1"
                   }`}
                 />

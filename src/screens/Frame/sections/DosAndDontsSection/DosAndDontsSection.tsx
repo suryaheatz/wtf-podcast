@@ -2,7 +2,8 @@ import { CheckCircle2Icon, XCircleIcon, ClockIcon } from "lucide-react";
 import React from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { useInsightsByType } from "../../../../hooks/usePodcastData";
-import type { EpisodeInsight } from "../../../../types/database";
+import type { EpisodeInsightRow } from "../../../../types/database";
+
 
 interface DosAndDontsSectionProps {
   episodeId?: string | null;
@@ -27,7 +28,7 @@ export const DosAndDontsSection = ({
   const { data: rawItems, loading, error } = useInsightsByType(episodeId, "roadmap_item");
 
   const { dos, donts } = React.useMemo(() => {
-    const items = (rawItems ?? []) as EpisodeInsight[];
+    const items = (rawItems ?? []) as EpisodeInsightRow[];
     const chunkRange = getChunkRange(chunkNumber, chunkSizeMinutes);
     const filteredItems = !chunkRange
       ? items
@@ -35,8 +36,8 @@ export const DosAndDontsSection = ({
           const seconds = item.timestamp_seconds;
           return Number.isFinite(seconds) && seconds >= chunkRange.start && seconds < chunkRange.end;
         });
-    const dos: EpisodeInsight[] = [];
-    const donts: EpisodeInsight[] = [];
+    const dos: EpisodeInsightRow[] = [];
+    const donts: EpisodeInsightRow[] = [];
 
     for (const item of filteredItems) {
       const metadata = (item.metadata as any) ?? {};

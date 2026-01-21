@@ -46,7 +46,7 @@ export const MobileMenu = ({ isOpen, onClose, onNavigate, onAIClick, activeSecti
 
   const backdropStyles = isDark
     ? "bg-black/70"
-    : "bg-black/40";
+    : "bg-white/75";
 
   const panelBgStyles = isDark
     ? "bg-[#1a1a1a]"

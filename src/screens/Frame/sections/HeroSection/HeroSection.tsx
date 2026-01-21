@@ -183,9 +183,9 @@ export const HeroSection = ({ episode, loading }: HeroSectionProps): JSX.Element
   };
 
   const isDark = theme === 'dark';
-  const navButtonBase = isDark
-    ? "w-10 h-10 rounded-xl text-white/90 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed"
-    : "w-10 h-10 rounded-xl text-blue-700 hover:text-blue-900 transition disabled:opacity-40 disabled:cursor-not-allowed";
+
+const navButtonBase =
+  "w-10 h-10 rounded-xl text-white/90 hover:text-white transition disabled:opacity-40 disabled:cursor-not-allowed";
 
   return (
     <section
