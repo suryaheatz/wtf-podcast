@@ -48,7 +48,11 @@ export const EpisodesModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[100]
+                    backdrop-blur-md
+                    animate-in fade-in duration-300
+                    bg-white/90 text-black
+                    dark:bg-black/95 dark:text-white">
       <div className="w-full h-full flex flex-col">
         <div className="flex-shrink-0 border-b border-[#fffefe0d] px-6 md:px-12 py-6">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -60,9 +64,13 @@ export const EpisodesModal = ({
             </div>
             <button
               onClick={onClose}
-              className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-full
+                        flex items-center justify-center
+                        transition-colors
+                        bg-zinc-100 hover:bg-zinc-200
+                        dark:bg-zinc-800 dark:hover:bg-zinc-700"
             >
-              <XIcon className="w-5 h-5 text-white" />
+              <XIcon className="w-5 h-5 text-black dark:text-white" />
             </button>
           </div>
         </div>

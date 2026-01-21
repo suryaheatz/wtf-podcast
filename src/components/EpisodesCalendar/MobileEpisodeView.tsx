@@ -96,15 +96,31 @@ const MonthSection = ({ monthGroup, onEpisodeSelect }: MonthSectionProps): JSX.E
           <>
             <button
               onClick={() => scroll('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-zinc-800/90 backdrop-blur-sm flex items-center justify-center shadow-lg -ml-2"
+              className=" absolute left-0 top-1/2 -translate-y-1/2 z-10
+                          w-8 h-8 rounded-full
+                          flex items-center justify-center
+                          backdrop-blur-sm shadow-lg
+                          -ml-2
+                          transition-colors
+
+                          bg-zinc-200/90 hover:bg-zinc-300/90
+                          dark:bg-zinc-800/90 dark:hover:bg-zinc-700/90"
             >
               <ChevronLeftIcon className="w-4 h-4 text-white" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-zinc-800/90 backdrop-blur-sm flex items-center justify-center shadow-lg -mr-2"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10
+                          w-8 h-8 rounded-full
+                          flex items-center justify-center
+                          backdrop-blur-sm shadow-lg
+                          -mr-2
+                          transition-colors
+
+                          bg-zinc-200/90 hover:bg-zinc-300/90
+                          dark:bg-zinc-800/90 dark:hover:bg-zinc-700/90"
             >
-              <ChevronRightIcon className="w-4 h-4 text-white" />
+              <ChevronRightIcon className="w-4 h-4 text-zinc-900 dark:text-white" />
             </button>
           </>
         )}

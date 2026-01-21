@@ -15,6 +15,10 @@ export type InsightType =
   | 'chapter'
   | 'video_chapter';
 
+export type EpisodeInsightRow = Database["public"]["Tables"]["episode_insights"]["Row"];
+export type EpisodeRow = Database["public"]["Tables"]["episodes"]["Row"];
+export type QuoteRow = Database["public"]["Tables"]["quotes"]["Row"];
+
 export interface Database {
   public: {
     Tables: {
@@ -355,23 +359,24 @@ export interface GuestWithTag {
   display_order: number
 }
 
-export interface EpisodeInsight extends Database['public']['Tables']['episode_insights']['Row'] {}
+export type EpisodeInsight = Database["public"]["Tables"]["episode_insights"]["Row"];
 
-export interface EpisodeWithDetails extends Database['public']['Tables']['episodes']['Row'] {
-  id: string
-  episode_number: number
-  title: string
-  description: string | null
-  framing: string | null
-  guest_name: string | null
-  guest_bio: string | null
-  youtube_video_id: string | null
-  duration_minutes: number
-  release_date: string
-  thumbnail_url: string | null
-  metadata: Json
-  podcast_name?: string
-  podcast_slug?: string
-  guests?: GuestWithTag[]
-  insights?: EpisodeInsight[]
-}
+export type EpisodeWithDetails =
+  Database["public"]["Tables"]["episodes"]["Row"] & {
+    id: string;
+    episode_number: number;
+    title: string;
+    description: string | null;
+    framing: string | null;
+    guest_name: string | null;
+    guest_bio: string | null;
+    youtube_video_id: string | null;
+    duration_minutes: number;
+    release_date: string;
+    thumbnail_url: string | null;
+    metadata: Json;
+    podcast_name?: string;
+    podcast_slug?: string;
+    guests?: GuestWithTag[];
+    insights?: EpisodeInsight[];
+  };

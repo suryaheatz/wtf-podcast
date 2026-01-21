@@ -118,8 +118,8 @@ export const HeaderSection = ({ onAIClick }: HeaderSectionProps): JSX.Element =>
   const isDark = theme === 'dark';
 
   const headerBgStyles = isDark
-    ? "bg-[#000000cc] border-[#fffefe0d]"
-    : "bg-white/95 border-zinc-200";
+    ? "bg-black/80 border-white/10"
+  : "bg-white/95 border-zinc-200";
 
   const logoTextStyles = isDark
     ? "text-white"
@@ -138,8 +138,8 @@ export const HeaderSection = ({ onAIClick }: HeaderSectionProps): JSX.Element =>
     : "text-black hover:bg-black/5";
 
   const navIconActiveStyles = isDark
-    ? "bg-white text-black"
-    : "bg-black text-white";
+    ? "bg-white text-black shadow-sm"
+  : "bg-black text-white shadow-sm";
 
   const navIconInactiveStyles = isDark
     ? "text-gray-400 hover:text-gray-200 hover:bg-white/10"
@@ -168,6 +168,7 @@ export const HeaderSection = ({ onAIClick }: HeaderSectionProps): JSX.Element =>
   return (
     <>
       <header
+        id="site-header"
         className={`sticky top-0 z-50 flex w-full items-center justify-between px-6 md:px-12 lg:px-16 xl:px-20 py-3 backdrop-blur-xl border-b shadow-lg transition-all duration-300 ${headerBgStyles}`}
         style={{ minHeight: '64px' }}
         role="banner"

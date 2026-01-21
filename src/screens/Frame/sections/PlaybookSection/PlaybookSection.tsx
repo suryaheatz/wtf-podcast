@@ -103,7 +103,7 @@ export const PlaybookSection = ({
 
   return (
     <section className="py-24 bg-zinc-950 dark:bg-zinc-950 light:bg-slate-50 border-t border-white/5 dark:border-white/5 light:border-gray-200">
-      <div className="w-full px-6">
+      <div className="w-full px-6 md:px-10 lg:px-12">
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
             The Playbook

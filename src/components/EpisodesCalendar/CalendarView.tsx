@@ -67,18 +67,18 @@ export const CalendarView = ({
       <div className="flex items-center justify-between mb-8">
         <button
           onClick={previousMonth}
-          className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center transition-colors"
+          className="w-10 h-10 rounded-full light:bg-zinc-800 light:hover:blue-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 flex items-center justify-center transition-colors"
         >
-          <ChevronLeftIcon className="w-5 h-5 text-white" />
+          <ChevronLeftIcon className="w-5 h-5 light:text-zinc-200 dark:text-white" />
         </button>
-        <h2 className="text-2xl font-bold text-white [font-family:'Arial-Bold',Helvetica]">
+        <h2 className="text-2xl font-bold tracking-tight light:text-zinc-950 dark:text-white [font-family:'Arial-Bold',Helvetica]">
           {monthName}
         </h2>
         <button
           onClick={nextMonth}
-          className="w-10 h-10 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center transition-colors"
+          className="w-10 h-10 rounded-full light:bg-zinc-800 light:hover:blue-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 flex items-center justify-center transition-colors"
         >
-          <ChevronRightIcon className="w-5 h-5 text-white" />
+          <ChevronRightIcon className="w-5 h-5 light:text-zinc-200 dark:text-white" />
         </button>
       </div>
 
@@ -86,7 +86,7 @@ export const CalendarView = ({
         {weekDays.map(day => (
           <div
             key={day}
-            className="text-center text-sm font-bold text-[#70707b] [font-family:'Arial-Bold',Helvetica]"
+            className="text-center text-sm font-bold tracking-wide light:text-zinc-800 dark:text-[#70707b] [font-family:'Arial-Bold',Helvetica]"
           >
             {day}
           </div>
@@ -108,11 +108,17 @@ export const CalendarView = ({
               {day ? (
                 <div
                 className={`w-full h-full flex items-center justify-center rounded-2xl transition-all duration-300 ${
-                  episode
-                    ? isCurrent
-                      ? `bg-gradient-to-br from-emerald-500 to-emerald-600 ring-4 ring-emerald-400/50 shadow-lg shadow-emerald-500/30 cursor-pointer scale-105 hover:scale-110 ${isHovered ? 'ring-4 ring-emerald-300' : ''}`
-                      : `bg-[#2b7fff] hover:bg-[#1e5fcc] cursor-pointer ${isHovered ? 'ring-2 ring-white scale-105' : ''}`
-                    : 'bg-transparent'
+                  episode? isCurrent
+                  ? `bg-gradient-to-br from-emerald-500 to-emerald-600 cursor-pointer scale-105 hover:scale-110
+                   light:ring-4 light:ring-emerald-500/40 dark:ring-4 dark:ring-emerald-400/50
+                      shadow-lg shadow-emerald-500/30
+                   ${isHovered ? 'light:ring-emerald-500/60 dark:ring-emerald-300' : ''}`
+                  : `cursor-pointer
+               light:bg-blue-600 light:hover:bg-blue-700
+              dark:bg-[#2b7fff] dark:hover:bg-[#1e5fcc]
+                  ${isHovered ? 'scale-105 light:ring-2 light:ring-zinc-900/20 dark:ring-2 dark:ring-white' : ''}`
+                : `light:bg-zinc-100 light:border light:border-zinc-200
+                  dark:bg-transparent dark:border dark:border-transparent`
                 }`}
                 onClick={() => episode && onEpisodeSelect?.(episode)}
                 role={episode ? "button" : undefined}
@@ -125,7 +131,7 @@ export const CalendarView = ({
               
                   <span
                     className={`text-2xl font-bold [font-family:'Arial-Bold',Helvetica] ${
-                      episode ? 'text-white' : 'text-[#52525c]'
+                      episode ? 'text-white' : 'light:text-zinc-800 dark:text-[#52525c]'
                     }`}
                   >
                     {day}
@@ -146,18 +152,18 @@ export const CalendarView = ({
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-gradient-to-br from-emerald-500 to-emerald-600 ring-2 ring-emerald-400/50" />
-            <span className="text-sm text-white [font-family:'Arial-Regular',Helvetica]">
+            <span className="text-sm light:text-zinc-900 dark:text-white [font-family:'Arial-Regular',Helvetica]">
               Current Episode
             </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded bg-[#2b7fff]" />
-            <span className="text-sm text-white [font-family:'Arial-Regular',Helvetica]">
+            <span className="text-sm light:text-zinc-900 dark:text-white [font-family:'Arial-Regular',Helvetica]">
               Available Episodes
             </span>
           </div>
         </div>
-        <span className="text-sm text-[#70707b] [font-family:'Arial-Regular',Helvetica]">
+        <span className="text-sm light:text-zinc-600 dark:text-[#70707b] [font-family:'Arial-Regular',Helvetica]">
           {episodes.length} Episodes Total
         </span>
       </div>
